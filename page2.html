@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b2b">
+<title>من المعرفة الأكاديمية إلى القيمة المهنية | العرض التقديمي</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap');
+:root{--bg:#0b1422;--panel:#111f31;--panel2:#17283d;--ink:#f4f7fb;--muted:#a9b7c9;--accent:#4fd1b5;--accent2:#f2b866;--line:rgba(255,255,255,.12);--shadow:0 24px 70px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans Arabic','Readex Pro',sans-serif}
+body{overflow:hidden;background-image:radial-gradient(circle at 10% 10%,rgba(79,209,181,.12),transparent 28%),radial-gradient(circle at 90% 85%,rgba(242,184,102,.10),transparent 25%)}
+button{font:inherit;cursor:pointer}
+.app{height:100vh;display:grid;grid-template-rows:auto 1fr auto;max-width:1600px;margin:auto;padding:18px 26px 16px;gap:14px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2c8f9c);display:grid;place-items:center;color:#071923;font-weight:800;font-size:19px;box-shadow:0 8px 24px rgba(79,209,181,.2)}
+.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.brand strong{font-size:14px;letter-spacing:.1px}
+.header-actions{display:flex;gap:8px;align-items:center}
+.tool-btn,.nav-btn{border:1px solid var(--line);background:rgba(255,255,255,.045);color:var(--ink);border-radius:11px;padding:9px 13px;transition:.2s}
+.tool-btn:hover,.nav-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(79,209,181,.5)}
+.tool-btn span{color:var(--accent);margin-left:5px}
+main{min-height:0;display:grid;grid-template-columns:210px minmax(0,1fr);gap:18px}
+.sidebar{background:rgba(17,31,49,.72);border:1px solid var(--line);border-radius:18px;padding:16px 12px;overflow:auto}
+.sidebar h3{font-size:12px;color:var(--muted);font-weight:500;margin:0 8px 12px}
+.section-link{width:100%;text-align:right;border:0;background:transparent;color:#bdc9d8;padding:10px 9px;border-radius:9px;font-size:12px;margin:2px 0;display:flex;justify-content:space-between;gap:8px}
+.section-link:hover,.section-link.active{background:rgba(79,209,181,.12);color:#fff}
+.section-link b{color:var(--accent);font-size:10px;font-weight:600}
+.stage{min-width:0;min-height:0;display:grid;place-items:center;position:relative}
+.slide{display:none;position:relative;width:min(100%,1120px);height:min(100%,690px);min-height:420px;padding:clamp(26px,4vw,58px);border:1px solid rgba(255,255,255,.13);border-radius:24px;background:linear-gradient(145deg,rgba(23,40,61,.98),rgba(13,25,41,.98));box-shadow:var(--shadow);overflow:auto;animation:appear .32s ease}
+.slide.active{display:flex;flex-direction:column}
+@keyframes appear{from{opacity:.25;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slide:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--accent),transparent 70%)}
+.slide-top,.slide-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.eyebrow{font-size:12px;color:var(--accent);font-weight:600}
+.slide-index{font-family:'Readex Pro',sans-serif;color:rgba(255,255,255,.2);font-size:22px;font-weight:700}
+.slide h2{font-size:clamp(27px,3.5vw,48px);line-height:1.25;margin:24px 0 20px;max-width:950px;letter-spacing:-.6px}
+.slide-content{font-size:clamp(16px,1.55vw,21px);line-height:1.85;color:#dbe4ee;max-width:980px;overflow:auto;padding-left:8px}
+.slide-content p{margin:0 0 13px}
+.slide-content h3{font-size:clamp(17px,1.8vw,23px);color:var(--accent2);margin:16px 0 5px}
+.slide-content ul,.slide-content ol{padding-right:1.25em;margin:8px 0 18px}
+.slide-content li{padding:3px 0 3px 8px}
+.slide-content li::marker{color:var(--accent)}
+.slide-content p:first-child{color:#fff}
+.slide-bottom{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:11px;color:#8394a9}
+footer{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.progress-wrap{display:flex;align-items:center;gap:12px;flex:1;max-width:520px}
+.progress-track{height:5px;background:rgba(255,255,255,.1);border-radius:9px;overflow:hidden;flex:1}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#9be6d6);transition:width .25s}
+.counter{font-size:12px;color:var(--muted);min-width:70px;text-align:center;font-variant-numeric:tabular-nums}
+.controls{display:flex;align-items:center;gap:8px}
+.nav-btn{width:42px;height:40px;padding:0;font-size:18px}
+.nav-btn.primary{background:var(--accent);color:#09221f;border-color:var(--accent);font-weight:700}
+.hint{font-size:11px;color:#8191a5}
+.overlay{position:fixed;inset:0;background:rgba(3,9,16,.82);backdrop-filter:blur(10px);z-index:5;display:none;align-items:center;justify-content:center;padding:24px}
+.overlay.open{display:flex}
+.overview{width:min(1100px,100%);max-height:85vh;overflow:auto;background:#101e30;border:1px solid var(--line);border-radius:20px;padding:22px}
+.overview-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.thumb{text-align:right;min-height:105px;border:1px solid var(--line);background:#17283d;color:#e8eef5;border-radius:12px;padding:13px}
+.thumb:hover{border-color:var(--accent);background:#1b3447}
+.thumb b{display:block;color:var(--accent);font-size:11px;margin-bottom:8px}
+.thumb span{font-size:13px;line-height:1.5}
+.close{border:1px solid var(--line);background:transparent;color:#fff;border-radius:9px;padding:7px 12px}
+.cover{background:radial-gradient(circle at 18% 75%,rgba(79,209,181,.16),transparent 30%),linear-gradient(145deg,#1b3548,#101d30)}
+.cover h2{font-size:clamp(38px,5vw,68px);max-width:850px;margin-top:45px}
+.cover .slide-content p:first-child{font-size:clamp(19px,2vw,27px);color:#fff;max-width:780px}
+.cover .slide-content p{color:#b8c9d8}
+@media(max-width:800px){body{overflow:auto}.app{height:100dvh;padding:12px;gap:10px}main{grid-template-columns:1fr}.sidebar{display:none}.slide{min-height:0;height:100%;padding:25px 22px;border-radius:17px}.slide h2{margin:17px 0}.slide-content{font-size:16px}.hint{display:none}header{flex-wrap:wrap}.brand strong{font-size:12px}.tool-btn{padding:8px 10px;font-size:12px}footer{gap:8px}}
+@media print{body{overflow:visible;background:#fff;color:#111}.app{display:block;height:auto;padding:0}header,.sidebar,footer{display:none!important}main{display:block}.stage{display:block}.slide{display:flex!important;page-break-after:always;width:100%;height:95vh;min-height:0;box-shadow:none;background:#fff;color:#111;border:1px solid #ddd;break-after:page}.slide-content{color:#222}.slide-content p:first-child{color:#111}.slide-bottom{color:#666}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><div class="brand-mark">ق</div><div><strong>من المعرفة الأكاديمية إلى القيمة المهنية</strong><small>المحاضرة الأولى · برنامج التسويق الرقمي</small></div></div>
+  <div class="header-actions">
+    <button class="tool-btn" id="overviewBtn"><span>▦</span> فهرس الشرائح</button>
+    <button class="tool-btn" id="printBtn"><span>⤓</span> طباعة / PDF</button>
+    <button class="tool-btn" id="fullBtn"><span>⛶</span> ملء الشاشة</button>
+    <h1>this is page 2</h1>
+  </div>
+</header>
+<main>
+  <aside class="sidebar">
+    <h3>محاور المحاضرة</h3>
+    <div id="sectionNav"></div>
+  </aside>
+  <section class="stage" id="stage">
+    <article class="slide" data-number="1" data-section="المدخل وسوق العمل" aria-label="الشريحة 1">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">01</span></div>
+      <h2>الغلاف</h2>
+      <div class="slide-content"><h3>من المعرفة الأكاديمية إلى القيمة المهنية</h3>
+<p>كيف نفهم الأعمال، ونكتشف المشكلات، ونحوّل المعرفة والتقنية إلى نتائج قابلة للقياس؟</p>
+<p>برنامج التسويق الرقمي</p>
+<p>كلية العلوم الإدارية والإنسانية</p>
+<p>جامعة العلوم والتكنولوجيا – المركز الرئيس عدن</p>
+<p>بالتعاون مع أكاديمية شات سنتر</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="2" data-section="المدخل وسوق العمل" aria-label="الشريحة 2">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">02</span></div>
+      <h2>لماذا نبدأ من هنا؟</h2>
+      <div class="slide-content"><p>قبل أن نتعلم أداة أو ننفذ حملة أو ندير محادثة، نحتاج إلى فهم البيئة التي نعمل داخلها.</p>
+<ul><li>كيف تعمل الشركات والمؤسسات؟</li><li>ما الذي تسعى إلى تحقيقه؟</li><li>كيف تصل إلى عملائها وتحقق إيراداتها؟</li><li>ما المشكلات التي تواجهها؟</li><li>أين يمكن لمهاراتنا أن تصنع فرقاً؟</li></ul>
+<p>الهدف ليس أن نتعلم تنفيذ المهام فقط، بل أن نفهم لماذا ننفذها وكيف نحقق منها قيمة.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="3" data-section="المدخل وسوق العمل" aria-label="الشريحة 3">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">03</span></div>
+      <h2>ماذا ستتعلم في هذه المحاضرة؟</h2>
+      <div class="slide-content"><p>بنهاية هذه المحاضرة، ستكون قادراً على:</p>
+<ol><li>فهم طبيعة سوق العمل ومتطلباته.</li><li>التمييز بين المعرفة الأكاديمية والقدرة المهنية.</li><li>فهم كيفية عمل الشركات ونماذج أعمالها.</li><li>التعرف إلى مراحل دراسة السوق وبناء النشاط التجاري.</li><li>فهم العلاقة بين التسويق والمبيعات والتشغيل.</li><li>التفكير بعقلية العمليات وتحسين الأداء.</li><li>إدراك دور التكنولوجيا في إدارة الأعمال.</li><li>تحليل مشكلة تجارية واقتراح حلول قابلة للقياس.</li></ol></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="4" data-section="المدخل وسوق العمل" aria-label="الشريحة 4">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">04</span></div>
+      <h2>المحور الأول: سوق العمل – ماذا ينتظر منك؟</h2>
+      <div class="slide-content"><p>سوق العمل لا يبحث فقط عمّن يعرف، بل عمّن يستطيع أن يوظف معرفته لتحقيق نتيجة.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="5" data-section="المدخل وسوق العمل" aria-label="الشريحة 5">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">05</span></div>
+      <h2>ما المقصود بسوق العمل؟</h2>
+      <div class="slide-content"><p>سوق العمل هو البيئة التي يلتقي فيها الطلب على المهارات والخدمات المهنية مع الأفراد القادرين على تقديمها.</p>
+<p>ويتكون من ثلاثة عناصر رئيسية:</p>
+<ul><li>أصحاب العمل: المؤسسات والشركات التي تحتاج إلى كفاءات.</li><li>المهنيون: الأفراد الذين يمتلكون المعارف والمهارات والخبرات.</li><li>الفرص الوظيفية: الاحتياجات التي تتطلب أداء مهام أو معالجة مشكلات محددة.</li></ul>
+<p>الفرصة المهنية تظهر عندما تتوافق قدرة الشخص مع احتياج حقيقي لدى المؤسسة.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="6" data-section="المدخل وسوق العمل" aria-label="الشريحة 6">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">06</span></div>
+      <h2>ماذا نعني بتشبع سوق العمل؟</h2>
+      <div class="slide-content"><p>يحدث التشبع النسبي عندما يزداد عدد المتقدمين الذين يمتلكون مؤهلات ومهارات متشابهة عن عدد الفرص المتاحة في تخصص أو مستوى وظيفي معين.</p>
+<p>وقد تظهر نتائجه في:</p>
+<ul><li>ارتفاع المنافسة على الوظائف.</li><li>تشابه السير الذاتية والمؤهلات.</li><li>صعوبة التميّز بين المتقدمين.</li><li>تراجع فرص من يكتفون بالمعرفة النظرية.</li><li>زيادة أهمية المهارات التطبيقية والخبرة.</li></ul>
+<p>التشبع لا يعني اختفاء الفرص، بل يعني أن التميّز أصبح أكثر أهمية.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="7" data-section="المدخل وسوق العمل" aria-label="الشريحة 7">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">07</span></div>
+      <h2>الفجوة بين التعليم الأكاديمي والتطبيق المهني</h2>
+      <div class="slide-content"><p>هناك فرق بين أن تعرف المفهوم، وأن تستطيع استخدامه في بيئة العمل.</p>
+<p>في التعليم</p>
+<p>في بيئة العمل</p>
+<p>معرفة مفهوم التسويق</p>
+<p>بناء نشاط تسويقي يحقق هدفاً</p>
+<p>دراسة سلوك المستهلك</p>
+<p>فهم سلوك عميل حقيقي</p>
+<p>معرفة أدوات التحليل</p>
+<p>تحليل بيانات واتخاذ قرار</p>
+<p>معرفة مفهوم المبيعات</p>
+<p>إدارة فرصة بيع وإتمام صفقة</p>
+<p>معرفة أدوات التقنية</p>
+<p>توظيف التقنية لتحسين العمل</p>
+<p>المعرفة أساس مهم، لكن الممارسة هي التي تكشف قدرتنا على توظيفها.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="8" data-section="المدخل وسوق العمل" aria-label="الشريحة 8">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">08</span></div>
+      <h2>ماذا ينتظر سوق العمل من الموظف؟</h2>
+      <div class="slide-content"><p>المؤسسات تحتاج إلى شخص يستطيع أن:</p>
+<ul><li>يفهم طبيعة النشاط التجاري وأهدافه.</li><li>يحلل المعلومات ويكتشف المشكلات.</li><li>يربط تخصصه باحتياجات المؤسسة.</li><li>ينظم العمل وينفذ الإجراءات.</li><li>يتواصل ويتعاون مع بقية الفرق.</li><li>يستخدم الأدوات والتقنيات المناسبة.</li><li>يقيس النتائج ويخطط للتحسينات على صعيد العمليات وعلى صعيد رحلة العميل</li></ul>
+<p>القيمة المهنية لا تتحدد بعدد المهام التي تنجزها، بل بأثر ما تنجزه.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="9" data-section="المدخل وسوق العمل" aria-label="الشريحة 9">
+      <div class="slide-top"><span class="eyebrow">المدخل وسوق العمل</span><span class="slide-index">09</span></div>
+      <h2>كيف تتحول المعرفة إلى قيمة مهنية؟</h2>
+      <div class="slide-content"><p>مسار تحويل المعرفة إلى نتائج</p>
+<p>المعرفة والتخصص</p>
+<p>ما الذي أعرفه؟</p>
+<p>فهم المشكلة والسياق</p>
+<p>ما الذي يحدث داخل المؤسسة؟</p>
+<p>التحليل واكتشاف الفجوة</p>
+<p>ما الذي يجب تحسينه؟</p>
+<p>بناء الحل وتنفيذه</p>
+<p>كيف نعالج المشكلة؟</p>
+<p>تحقيق القيمة وقياس النتائج</p>
+<p>ما الأثر الذي تحقق؟</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="10" data-section="عقلية الأعمال" aria-label="الشريحة 10">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">10</span></div>
+      <h2>المحور الثاني: افهم الشركة قبل أن تعمل فيها</h2>
+      <div class="slide-content"><p>لكي تكون موظفاً مؤثراً، لا يكفي أن تفهم وظيفتك؛ بل تحتاج إلى فهم النشاط التجاري الذي تعمل داخله.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="11" data-section="عقلية الأعمال" aria-label="الشريحة 11">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">11</span></div>
+      <h2>ما عقلية الأعمال؟</h2>
+      <div class="slide-content"><p>عقلية الأعمال (Business Mindset) هي القدرة على فهم كيفية عمل النشاط التجاري، وكيف يقدم القيمة للعملاء، وكيف يحقق الإيرادات، وما الموارد والعمليات والتحديات التي تؤثر في أدائه.</p>
+<p>وتعتمد على أربعة أسئلة:</p>
+<ol><li>من العملاء الذين نخدمهم؟</li><li>ما القيمة التي نقدمها لهم؟</li><li>كيف نصل إليهم ونقدم لهم خدماتنا؟</li><li>كيف نحقق الإيرادات ونحافظ على استمرارية النشاط؟</li></ol></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="12" data-section="عقلية الأعمال" aria-label="الشريحة 12">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">12</span></div>
+      <h2>الفرق بين عقلية تنفيذ المهام وعقلية الأعمال</h2>
+      <div class="slide-content"><p>عقلية الأعمال تنقل الموظف من التركيز على الأنشطة إلى التركيز على النتيجة وتحتاج للتفكير الاستراتيجي احتاج اوصل من نقطة الى نقطة ايش بحتاج هنا من موارد وانشطة للوصول.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="13" data-section="عقلية الأعمال" aria-label="الشريحة 13">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">13</span></div>
+      <h2>كيف نفهم نموذج العمل التجاري؟</h2>
+      <div class="slide-content"><p>نموذج العمل التجاري (Business Model) هو الطريقة التي تنشئ بها المؤسسة القيمة، وتقدمها للعملاء، وتحصل مقابلها على الإيرادات.</p>
+<p>لفهم نموذج العمل، نحتاج إلى معرفة:</p>
+<ul><li>شرائح العملاء.</li><li>القيمة المقدمة.</li><li>المنتجات والخدمات.</li><li>قنوات الوصول إلى العملاء.</li><li>طبيعة العلاقة مع العملاء.</li><li>مصادر الإيرادات.</li><li>الموارد والأنشطة الرئيسية.</li><li>التكاليف والشركاء.</li></ul></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="14" data-section="عقلية الأعمال" aria-label="الشريحة 14">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">14</span></div>
+      <h2>مكونات نموذج العمل</h2>
+      <div class="slide-content"><p>المكوّن</p>
+<p>السؤال الأساسي</p>
+<p>شرائح العملاء</p>
+<p>من نخدم؟</p>
+<p>القيمة المقدمة</p>
+<p>ما المشكلة التي نحلها؟</p>
+<p>القنوات</p>
+<p>كيف نصل إلى العملاء؟</p>
+<p>العلاقة مع العملاء</p>
+<p>كيف نكتسب العميل ونحافظ عليه؟</p>
+<p>مصادر الإيرادات</p>
+<p>مقابل ماذا يدفع العميل؟</p>
+<p>الموارد الرئيسية</p>
+<p>ماذا نحتاج لتشغيل النشاط؟</p>
+<p>الأنشطة الرئيسية</p>
+<p>ما الأعمال التي يجب تنفيذها؟</p>
+<p>الشركاء الرئيسيون</p>
+<p>من يساعدنا على تقديم القيمة؟</p>
+<p>هيكل التكاليف</p>
+<h3>ما الموارد والأنشطة التي تكلفنا؟</h3>
+<p>فهم هذا النموذج يساعد الموظف على إدراك كيف يرتبط عمله ببقية وظائف الشركة.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="16" data-section="عقلية الأعمال" aria-label="الشريحة 16">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">16</span></div>
+      <h2>كيف تحقق الشركات إيراداتها؟</h2>
+      <div class="slide-content"><p>تختلف مصادر الإيرادات باختلاف طبيعة النشاط ونموذج العمل.</p>
+<ul><li>بيع المنتجات: بيع السلع المادية أو الرقمية.</li><li>الخدمات: تقديم خدمة مقابل رسوم.</li><li>الاشتراكات: تحصيل مبالغ دورية مقابل استخدام خدمة.</li><li>العمولات: الحصول على نسبة من عمليات البيع أو الوساطة.</li><li>الباقات: تقديم مجموعة من المنتجات أو الخدمات بسعر محدد.</li><li>عقود الشركات: اتفاقيات توريد أو تشغيل أو تدريب بين المؤسسات.</li></ul>
+<p>ملاحظة: الإيرادات ليست هي الأرباح؛ فالربح يتأثر بالتكاليف والمصروفات وكفاءة التشغيل.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="18" data-section="عقلية الأعمال" aria-label="الشريحة 18">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">18</span></div>
+      <h2>تحليل الفجوات واكتشاف المشكلات</h2>
+      <div class="slide-content"><p>الفجوة هي الفرق بين الوضع الحالي والوضع المستهدف.</p>
+<p>لكن تحديد الفجوة لا يكفي؛ يجب البحث عن أسبابها:</p>
+<p>لا تقفز إلى الحل قبل أن تفهم المشكلة وأسبابها.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="19" data-section="عقلية الأعمال" aria-label="الشريحة 19">
+      <div class="slide-top"><span class="eyebrow">عقلية الأعمال</span><span class="slide-index">19</span></div>
+      <h2>منهجية تحليل المشكلة</h2>
+      <div class="slide-content"><p>01</p>
+<p>فهم الوضع الحالي</p>
+<p>ما الذي يحدث الآن؟</p>
+<p>02</p>
+<p>تحديد الوضع المستهدف</p>
+<p>ما النتيجة التي نريد الوصول إليها؟</p>
+<p>03</p>
+<p>تحديد الفجوة</p>
+<p>ما الفرق بين الوضعين؟</p>
+<p>04</p>
+<p>تحليل الأسباب</p>
+<p>لماذا تحدث المشكلة؟</p>
+<p>05</p>
+<p>بناء الحل</p>
+<p>ما الإجراء المناسب لمعالجتها؟</p>
+<p>06</p>
+<p>التنفيذ والقياس</p>
+<p>هل نجح الحل؟ وما مقدار التحسن؟</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="20" data-section="نشأة الشركات وتشغيلها" aria-label="الشريحة 20">
+      <div class="slide-top"><span class="eyebrow">نشأة الشركات وتشغيلها</span><span class="slide-index">20</span></div>
+      <h2>المحور الثالث: من اكتشاف الفرصة إلى تشغيل النشاط</h2>
+      <div class="slide-content"><p>تأسيس النشاط التجاري لا يبدأ بالإعلان أو البيع مباشرة، بل بفهم الفرصة والسوق والعملاء، ثم تصميم العرض المناسب وبناء طريقة العمل.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="21" data-section="نشأة الشركات وتشغيلها" aria-label="الشريحة 21">
+      <div class="slide-top"><span class="eyebrow">نشأة الشركات وتشغيلها</span><span class="slide-index">21</span></div>
+      <h2>من أين تبدأ الشركة؟</h2>
+      <div class="slide-content"><p>المسار العام لبناء النشاط التجاري</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="27" data-section="تكامل وظائف الشركة" aria-label="الشريحة 27">
+      <div class="slide-top"><span class="eyebrow">تكامل وظائف الشركة</span><span class="slide-index">27</span></div>
+      <h2>المحور الرابع: التسويق والمبيعات والتشغيل</h2>
+      <div class="slide-content"><p>الشركات لا تعمل من خلال وظائف منفصلة، بل من خلال منظومة مترابطة تتكامل لتحقيق هدف تجاري مشترك.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="28" data-section="تكامل وظائف الشركة" aria-label="الشريحة 28">
+      <div class="slide-top"><span class="eyebrow">تكامل وظائف الشركة</span><span class="slide-index">28</span></div>
+      <h2>الوظائف التجارية الرئيسية</h2>
+      <div class="slide-content"><h3>التسويق – Marketing</h3>
+<p>فهم السوق، وتحديد العملاء، وبناء القيمة، والوصول إلى الجمهور، وتوليد الاهتمام والفرص.</p>
+<h3>المبيعات – Sales</h3>
+<p>استقبال الفرص، والتواصل مع العملاء، وتأهيلهم، وفهم احتياجاتهم، وتقديم الحلول، ومعالجة الاعتراضات وإتمام البيع.</p>
+<h3>أهمية المبيعات وعلاقته بالتسويق</h3>
+<p>المبيعات هي شريان حياة الأنشطة التجارية، وبدونها لا تستطيع الشركات أن تحقق أرباحها ولا</p>
+<p>البقاء في الأسواق لفترة طويلة.</p>
+<h3>ما الفرق بين البيع والتسويق؟</h3>
+<ol><li>البيع يبدأ بعد الإنتاج ويركز على المنتجات الفعلية مستخدما بعض أساليب البيع والترويج.</li></ol>
+<p>Ǿ. التسويق يبدأ قبل الإنتاج ويركز على حاجات الناس مستخدما عناصر المزيج التسويقي.</p>
+<p>ǿ . يشترك البيع والتسويق في تحقيق الأرباح إلا أنهما يختلفان في الآلية.</p>
+<p>Ȁ . البيع يهدف إلى تحقيق الأهداف من خلال زيادة حجم المبيعات.</p>
+<p>ȁ . التسويق يهدف إلى تحقيق الأهداف من خلال رضاء المستهلك.</p>
+<h3>التشغيل – Operations</h3>
+<p>إدارة الموارد والمخزون والطلبات والتجهيز والتسليم والجودة والخدمات.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="29" data-section="تكامل وظائف الشركة" aria-label="الشريحة 29">
+      <div class="slide-top"><span class="eyebrow">تكامل وظائف الشركة</span><span class="slide-index">29</span></div>
+      <h2>كيف تتكامل الوظائف التجارية؟</h2>
+      <div class="slide-content"><p>مثال: متجر عطور يطلق حملة إعلانية.</p>
+<p>التسويق</p>
+<p>إطلاق الحملة وجذب العملاء المحتملين</p>
+<p>المبيعات</p>
+<p>استقبال الاستفسارات وفهم الاحتياج وإتمام البيع</p>
+<p>التشغيل</p>
+<p>التحقق من المخزون وتجهيز الطلب والتوصيل</p>
+<p>تجربة العميل والنتائج</p>
+<p>التسليم والمتابعة والقياس وتكرار الشراء</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="30" data-section="تكامل وظائف الشركة" aria-label="الشريحة 30">
+      <div class="slide-top"><span class="eyebrow">تكامل وظائف الشركة</span><span class="slide-index">30</span></div>
+      <h2>رحلة الشراء ورحلة العميل</h2>
+      <div class="slide-content"><p>رحلة الشراء</p>
+<p>تركز على انتقال العميل من إدراك الحاجة إلى اتخاذ قرار الشراء:</p>
+<ul><li>رحلة الشراء</li><li>إدراك الاحتياج</li><li>تحديد المنتج</li><li>البحث عن المنتج</li><li>الحصول على العرض</li><li>مقارنة العروض</li><li>الشراء</li><li>تقييم التجربة</li><li>\</li></ul>
+<p>رحلة العميل</p>
+<p>أوسع من عملية الشراء، وتشمل جميع نقاط الاتصال والتجارب:</p>
+<ul><li>اكتشاف العلامة التجارية.</li><li>التفاعل والتواصل.</li><li>الشراء.</li><li>استلام المنتج واستخدامه.</li><li>الدعم وخدمة ما بعد البيع.</li><li>الولاء وتكرار الشراء.</li></ul>
+<p>البيع لا ينتهي عند إتمام الطلب؛ تجربة العميل بعد الشراء جزء من نجاح النشاط.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="31" data-section="تكامل وظائف الشركة" aria-label="الشريحة 31">
+      <div class="slide-top"><span class="eyebrow">تكامل وظائف الشركة</span><span class="slide-index">31</span></div>
+      <h2>ماذا يحدث عندما تنمو الشركة؟</h2>
+      <div class="slide-content"><p>مع زيادة العملاء والقنوات والموظفين، تظهر تحديات جديدة:</p>
+<ul><li>تشتت بيانات العملاء بين المنصات والملفات.</li><li>ضياع بعض المحادثات والفرص البيعية.</li><li>تأخر الردود وضعف المتابعة.</li><li>عدم وضوح مسؤوليات الموظفين.</li><li>صعوبة قياس أداء المبيعات.</li><li>عدم ربط الحملات بالطلبات والمبيعات.</li><li>ضعف التنسيق بين المبيعات والتشغيل والمخزون.</li><li>صعوبة معرفة المنتجات الأكثر طلباً.</li></ul>
+<p>كلما زاد حجم النشاط، زادت الحاجة إلى تنظيم العمليات وربط البيانات واستخدام الأنظمة المناسبة.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="32" data-section="عقلية العمليات" aria-label="الشريحة 32">
+      <div class="slide-top"><span class="eyebrow">عقلية العمليات</span><span class="slide-index">32</span></div>
+      <h2>المحور الخامس: لا تنجز المهمة فقط، بل افهم العملية</h2>
+      <div class="slide-content"><p>المؤسسة لا تحتاج إلى تنفيذ المهام بصورة منفصلة فقط؛ بل تحتاج إلى إجراءات واضحة تضمن إنجاز العمل بكفاءة واستمرارية.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="33" data-section="عقلية العمليات" aria-label="الشريحة 33">
+      <div class="slide-top"><span class="eyebrow">عقلية العمليات</span><span class="slide-index">33</span></div>
+      <h2>ما الفرق بين المهمة والعملية؟</h2>
+      <div class="slide-content"><p>المهمة – Task</p>
+<p>عمل محدد يقوم به الموظف.</p>
+<h3>العملية – Process</h3>
+<p>مجموعة من الخطوات المترابطة تبدأ بمدخلات وتنتهي بمخرجات تحقق هدفاً محدداً.</p>
+<p>الهدف هو ضمان ألا يعتمد نجاح الخدمة على اجتهاد الموظف وحده.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="35" data-section="عقلية العمليات" aria-label="الشريحة 35">
+      <div class="slide-top"><span class="eyebrow">عقلية العمليات</span><span class="slide-index">35</span></div>
+      <h2>كيف نبني عملية عمل واضحة؟</h2>
+      <div class="slide-content"><p>كل عملية تحتاج إلى عناصر أساسية:</p>
+<p>العنصر</p>
+<p>ما الذي نحدده؟</p>
+<p>الهدف</p>
+<p>النتيجة المطلوب تحقيقها</p>
+<p>المدخلات</p>
+<p>البيانات والموارد اللازمة</p>
+<p>الخطوات</p>
+<p>تسلسل تنفيذ العمل</p>
+<p>المسؤوليات</p>
+<p>من ينفذ ومن يراجع؟</p>
+<p>المخرجات</p>
+<p>ما الذي يجب أن ينتج؟</p>
+<p>مؤشرات الأداء</p>
+<p>كيف نقيس النجاح؟</p>
+<p>التحسين</p>
+<p>كيف نطور العملية؟</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="37" data-section="عقلية العمليات" aria-label="الشريحة 37">
+      <div class="slide-top"><span class="eyebrow">عقلية العمليات</span><span class="slide-index">37</span></div>
+      <h2>من المهمة إلى النظام والتحسين</h2>
+      <div class="slide-content"><p>المهمة</p>
+<p>عمل محدد ينفذه شخص.</p>
+<p>العملية</p>
+<p>خطوات مترابطة لتحقيق هدف.</p>
+<p>النظام</p>
+<p>أدوار وبيانات وأدوات وإجراءات تنظم العمل.</p>
+<p>التحسين والأتمتة</p>
+<p>رفع الكفاءة وتقليل الأخطاء والجهد اليدوي.</p>
+<p>لا يمكن أتمتة عملية غير مفهومة أو غير منظمة بصورة جيدة.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="38" data-section="التكنولوجيا والتحول الرقمي" aria-label="الشريحة 38">
+      <div class="slide-top"><span class="eyebrow">التكنولوجيا والتحول الرقمي</span><span class="slide-index">38</span></div>
+      <h2>المحور السادس: التكنولوجيا والتحول الرقمي</h2>
+      <div class="slide-content"><p>التكنولوجيا أصبحت جزءاً من طريقة إدارة الشركات وتسويق منتجاتها وبيعها وتشغيل أعمالها واتخاذ قراراتها.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="39" data-section="التكنولوجيا والتحول الرقمي" aria-label="الشريحة 39">
+      <div class="slide-top"><span class="eyebrow">التكنولوجيا والتحول الرقمي</span><span class="slide-index">39</span></div>
+      <h2>كيف كانت الشركات تعمل تقليدياً؟</h2>
+      <div class="slide-content"><p>اعتمدت كثير من المؤسسات على:</p>
+<ul><li>السجلات والدفاتر الورقية.</li><li>الملفات المنفصلة لحفظ بيانات العملاء.</li><li>المكالمات الهاتفية للتواصل.</li><li>المتابعة اليدوية للطلبات.</li><li>التقارير التي تجمع بصورة دورية.</li><li>الإجراءات التي تعتمد على خبرة الموظف وذاكرته.</li></ul>
+<p>هذه الأساليب قد تكون مناسبة للأنشطة الصغيرة، لكنها تصبح أكثر صعوبة مع نمو العمليات وزيادة حجم البيانات والعملاء.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="40" data-section="التكنولوجيا والتحول الرقمي" aria-label="الشريحة 40">
+      <div class="slide-top"><span class="eyebrow">التكنولوجيا والتحول الرقمي</span><span class="slide-index">40</span></div>
+      <h2>كيف غيرت التكنولوجيا بيئة الأعمال؟</h2>
+      <div class="slide-content"><p>أصبح بالإمكان إدارة الوظائف المختلفة باستخدام الأنظمة الرقمية:</p>
+<ul><li>التسويق: إدارة الحملات وتحليل الجمهور والنتائج.</li><li>المبيعات: إدارة العملاء والفرص والمحادثات.</li><li>خدمة العملاء: توحيد قنوات التواصل.</li><li>التشغيل: إدارة الطلبات والمخزون.</li><li>الإدارة: التقارير ولوحات مؤشرات الأداء.</li><li>الإجراءات: الأتمتة وسير العمل.</li><li>اتخاذ القرار: تحليل البيانات والذكاء الاصطناعي.</li></ul>
+<p>التكنولوجيا تساعد على الانتقال من العمل المتفرق إلى العمل المنظم والمترابط.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="41" data-section="التكنولوجيا والتحول الرقمي" aria-label="الشريحة 41">
+      <div class="slide-top"><span class="eyebrow">التكنولوجيا والتحول الرقمي</span><span class="slide-index">41</span></div>
+      <h2>الرقمنة واستخدام التقنية والتحول الرقمي</h2>
+      <div class="slide-content"><p>ثلاثة مفاهيم متقاربة لكنها ليست متطابقة:</p>
+<ol><li>Digitization – الرقمنة</li></ol>
+<p>تحويل المعلومات من شكل ورقي أو تناظري إلى صيغة رقمية.</p>
+<p>مثال: تحويل سجل العملاء الورقي إلى ملف إلكتروني.</p>
+<p>2\. Digitalization – استخدام التقنية لتحسين العمليات</p>
+<h3>استخدام الأدوات الرقمية لتحسين إجراء قائم.</h3>
+<p>مثال: استقبال طلبات العملاء وتسجيلها إلكترونياً بدلاً من تسجيلها يدوياً.</p>
+<p>3\. Digital Transformation – التحول الرقمي</p>
+<p>تطوير طريقة عمل المؤسسة ونموذج تقديم القيمة والعمليات والقرارات اعتماداً على التكنولوجيا.</p>
+<p>مثال: تحويل نشاط تقليدي إلى منظومة متكاملة لإدارة العملاء والمبيعات والطلبات والمخزون والتحليلات رقمياً.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="42" data-section="التكنولوجيا والتحول الرقمي" aria-label="الشريحة 42">
+      <div class="slide-top"><span class="eyebrow">التكنولوجيا والتحول الرقمي</span><span class="slide-index">42</span></div>
+      <h2>كيف تستخدم الشركات التكنولوجيا في إدارة المبيعات؟</h2>
+      <div class="slide-content"><p>تساعد الأنظمة الرقمية على إدارة مجموعة من الوظائف:</p>
+<ul><li>إدارة العملاء CRM: حفظ تفاعلات العملاء وسجل تواصلهم.</li><li>إدارة المحادثات Inbox: توحيد قنوات التواصل وتنظيمها.</li><li>الحملات Campaigns: إدارة التواصل التسويقي مع العملاء.</li><li>الأتمتة Automation: تنفيذ الإجراءات المتكررة بصورة آلية.</li><li>الذكاء الاصطناعي AI: دعم الموظفين وتحليل المعلومات.</li><li>التكامل Integrations: ربط الأنظمة والمتاجر والخدمات.</li><li>نقطة البيع POS: إدارة المبيعات والفواتير والمخزون.</li><li>التقارير: متابعة الأداء وتحليل النتائج.</li></ul></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="43" data-section="التكنولوجيا والتحول الرقمي" aria-label="الشريحة 43">
+      <div class="slide-top"><span class="eyebrow">التكنولوجيا والتحول الرقمي</span><span class="slide-index">43</span></div>
+      <h2>شات سنتر: منصة لإدارة المبيعات والعمليات الرقمية</h2>
+      <div class="slide-content"><p>شات سنتر نموذج تطبيقي لمنصة تساعد الشركات على تنظيم عملياتها التجارية الرقمية، وربط التفاعل مع العملاء بالبيانات والإجراءات التشغيلية.</p>
+<p>وتشمل مجالاتها:</p>
+<p>المجال</p>
+<p>الوظيفة</p>
+<p>CRM</p>
+<p>إدارة علاقات العملاء</p>
+<p>Inbox</p>
+<p>إدارة المحادثات والقنوات</p>
+<p>Campaigns</p>
+<p>إدارة الحملات</p>
+<p>AI</p>
+<p>توظيف الذكاء الاصطناعي</p>
+<p>Automation</p>
+<p>أتمتة المحادثات والعمليات</p>
+<p>Integrations</p>
+<p>ربط الأنظمة والخدمات</p>
+<p>POS</p>
+<h3>إدارة البيع والفواتير والمخزون</h3>
+<p>المهم ليس حفظ أسماء الواجهات، بل فهم الوظيفة التجارية التي تخدمها كل واجهة.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="45" data-section="التطبيق العملي" aria-label="الشريحة 45">
+      <div class="slide-top"><span class="eyebrow">التطبيق العملي</span><span class="slide-index">45</span></div>
+      <h2>لدى المتجر منتجات جيدة وأسعار مناسبة، ويستقبل استفسارات من العملاء عبر واتساب وإنستغرام، لكنه يواجه مجموعة من المشكلات:</h2>
+      <div class="slide-content"><ul><li>كثرة الاستفسارات وقلة المبيعات.</li><li>تأخر الرد على العملاء.</li><li>عدم متابعة من لم يشترِ.</li><li>عدم وجود قاعدة بيانات منظمة.</li><li>عدم وضوح أداء الموظفين.</li><li>صعوبة معرفة المنتجات الأكثر طلباً.</li></ul>
+<p>المطلوب: فهم النشاط التجاري وتشخيص المشكلة قبل اقتراح الحل.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="46" data-section="التطبيق العملي" aria-label="الشريحة 46">
+      <div class="slide-top"><span class="eyebrow">التطبيق العملي</span><span class="slide-index">46</span></div>
+      <h2>المهمة الأولى: افهم النشاط التجاري</h2>
+      <div class="slide-content"><ol><li>ما طبيعة النشاط التجاري؟</li><li>من العملاء المستهدفون؟</li><li>ما المنتجات والقيمة المقدمة؟</li><li>ما مصادر الإيرادات؟</li><li>ما القنوات المستخدمة للوصول إلى العملاء؟</li><li>ما العمليات الأساسية التي يحتاج إليها المتجر؟</li></ol></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="47" data-section="التطبيق العملي" aria-label="الشريحة 47">
+      <div class="slide-top"><span class="eyebrow">التطبيق العملي</span><span class="slide-index">47</span></div>
+      <h2>المهمة الثانية: حلّل المشكلات والفجوات</h2>
+      <div class="slide-content"><ul><li>ما المشكلات الظاهرة؟</li><li>ما الأسباب المحتملة وراء كل مشكلة؟</li><li>ما الفرق بين العرض والسبب؟</li><li>ما البيانات التي تحتاجون إليها للتأكد من التشخيص؟</li><li>ما المشكلات التي تؤثر مباشرة في المبيعات؟</li><li>ما المشكلات التي تؤثر في تجربة العميل؟</li></ul></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="48" data-section="التطبيق العملي" aria-label="الشريحة 48">
+      <div class="slide-top"><span class="eyebrow">التطبيق العملي</span><span class="slide-index">48</span></div>
+      <h2>المهمة الثالثة: اربط المشكلات بوظائف الشركة</h2>
+      <div class="slide-content"><p>صنفوا المشكلات بحسب الوظيفة التي تتأثر بها:</p>
+<p>التسويق</p>
+<p>هل توجد مشكلة في جودة الجمهور أو الاستهداف أو الحملات؟</p>
+<p>المبيعات</p>
+<p>هل توجد مشكلة في سرعة الرد أو التأهيل أو الإقناع أو المتابعة؟</p>
+<p>التشغيل</p>
+<p>هل توجد مشكلة في المخزون أو الطلبات أو التجهيز أو التسليم؟</p>
+<p>التكامل</p>
+<p>هل تنتقل المعلومات بين هذه الوظائف بصورة صحيحة؟</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="49" data-section="التطبيق العملي" aria-label="الشريحة 49">
+      <div class="slide-top"><span class="eyebrow">التطبيق العملي</span><span class="slide-index">49</span></div>
+      <h2>المهمة الرابعة: صمموا الحلول والعمليات</h2>
+      <div class="slide-content"><ol><li>الإجراء المطلوب.</li><li>الخطوات اللازمة لتنفيذه.</li><li>الموظف المسؤول.</li><li>المعلومات التي يجب تسجيلها.</li><li>التقنية التي يمكن استخدامها.</li><li>النتيجة التي نتوقع تحقيقها.</li></ol></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="50" data-section="التطبيق العملي" aria-label="الشريحة 50">
+      <div class="slide-top"><span class="eyebrow">التطبيق العملي</span><span class="slide-index">50</span></div>
+      <h2>المهمة الخامسة: كيف نقيس نجاح الحل؟</h2>
+      <div class="slide-content"><p>كل مؤشر يجب أن يرتبط بهدف أو مشكلة نريد تحسينها.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="52" data-section="الخلاصة" aria-label="الشريحة 52">
+      <div class="slide-top"><span class="eyebrow">الخلاصة</span><span class="slide-index">52</span></div>
+      <h2>ماذا تعلمنا؟</h2>
+      <div class="slide-content"><ol><li>سوق العمل يحتاج إلى أشخاص يستطيعون تحويل المعرفة إلى قيمة.</li><li>فهم النشاط التجاري يسبق تنفيذ المهام.</li><li>الشركات تقوم على نموذج عمل يربط العملاء بالقيمة والإيرادات.</li><li>التسويق والمبيعات والتشغيل وظائف مترابطة.</li><li>العمليات الواضحة تساعد على تنظيم العمل وتحسينه.</li><li>التكنولوجيا وسيلة لحل المشكلات وتطوير الأداء.</li><li>النتائج المهنية يجب أن تكون قابلة للقياس والتحسين.</li></ol></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="53" data-section="الخلاصة" aria-label="الشريحة 53">
+      <div class="slide-top"><span class="eyebrow">الخلاصة</span><span class="slide-index">53</span></div>
+      <h2>الرسالة التي نريد أن تبقى معك</h2>
+      <div class="slide-content"><p>لا تكن مجرد منفذ للمهام.</p>
+<p>افهم النشاط التجاري الذي تعمل فيه.</p>
+<p>اكتشف المشكلات التي تواجهه.</p>
+<p>استخدم معرفتك لتصميم الحلول.</p>
+<p>نظّم العمل وطوّر إجراءاته.</p>
+<p>وظّف التكنولوجيا في المكان الصحيح.</p>
+<h3>وقِس الأثر الذي تحققه.</h3>
+<p>المهني المؤثر لا يكتفي بإنجاز العمل؛ بل يسهم في تطوير طريقة إنجازه وتحقيق نتائج أفضل.</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article>
+
+    <article class="slide" data-number="54" data-section="الخلاصة" aria-label="الشريحة 54">
+      <div class="slide-top"><span class="eyebrow">الخلاصة</span><span class="slide-index">54</span></div>
+      <h2>الانتقال إلى المرحلة التالية</h2>
+      <div class="slide-content"><p>من فهم الأعمال إلى ممارسة المبيعات الرقمية وإدارة العملاء والعمليات.</p>
+<p>في المحاضرات القادمة سننتقل من فهم المنظومة التجارية إلى التعرف على وظائفها وممارستها عملياً، ثم استخدام الأنظمة والأدوات الرقمية لتنفيذها وتحسين نتائجها.</p>
+<p>شكراً لكم · أسئلة ونقاش</p></div>
+      <div class="slide-bottom"><span>من المعرفة الأكاديمية إلى القيمة المهنية</span><span>برنامج التسويق الرقمي</span></div>
+    </article></section>
+</main>
+<footer>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progress"></div></div><div class="counter" id="counter"></div></div>
+  <div class="hint">التنقل بالأسهم ← → أو مفاتيح Page Up / Page Down</div>
+  <div class="controls">
+    <button class="nav-btn" id="prev" aria-label="الشريحة السابقة">→</button>
+    <button class="nav-btn primary" id="next" aria-label="الشريحة التالية">←</button>
+  </div>
+</footer>
+</div>
+<div class="overlay" id="overlay">
+ <div class="overview">
+  <div class="overview-head"><div><strong>فهرس الشرائح</strong><div style="color:#9aabbd;font-size:12px;margin-top:4px">اختر شريحة للانتقال إليها مباشرة</div></div><button class="close" id="closeOverview">إغلاق ✕</button></div>
+  <div class="overview-grid" id="overviewGrid"></div>
+ </div>
+</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let current=0;
+const sections=["المدخل وسوق العمل", "عقلية الأعمال", "نشأة الشركات وتشغيلها", "تكامل وظائف الشركة", "عقلية العمليات", "التكنولوجيا والتحول الرقمي", "التطبيق العملي", "الخلاصة"];
+const sectionNav=document.getElementById('sectionNav');
+const overviewGrid=document.getElementById('overviewGrid');
+const overlay=document.getElementById('overlay');
+const progress=document.getElementById('progress');
+const counter=document.getElementById('counter');
+function show(index){
+ current=Math.max(0,Math.min(slides.length-1,index));
+ slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+ const active=slides[current];
+ progress.style.width=((current+1)/slides.length*100)+'%';
+ counter.textContent=(current+1)+' / '+slides.length;
+ document.querySelectorAll('.section-link').forEach(b=>b.classList.toggle('active',b.dataset.section===active.dataset.section));
+ document.getElementById('prev').disabled=current===0;
+ document.getElementById('next').disabled=current===slides.length-1;
+}
+const sectionCounts={};
+slides.forEach(s=>sectionCounts[s.dataset.section]=(sectionCounts[s.dataset.section]||0)+1);
+sections.forEach(name=>{
+ const btn=document.createElement('button');btn.className='section-link';btn.dataset.section=name;
+ btn.innerHTML='<span>'+name+'</span><b>'+ (sectionCounts[name]||0) +' شرائح</b>';
+ btn.onclick=()=>{const idx=slides.findIndex(s=>s.dataset.section===name);if(idx>=0)show(idx)};
+ sectionNav.appendChild(btn);
+});
+slides.forEach((s,i)=>{
+ const b=document.createElement('button');b.className='thumb';
+ const title=s.querySelector('h2')?.textContent||'';
+ b.innerHTML='<b>الشريحة '+s.dataset.number+'</b><span>'+title+'</span>';
+ b.onclick=()=>{show(i);overlay.classList.remove('open')};
+ overviewGrid.appendChild(b);
+});
+document.getElementById('prev').onclick=()=>show(current-1);
+document.getElementById('next').onclick=()=>show(current+1);
+document.getElementById('overviewBtn').onclick=()=>overlay.classList.add('open');
+document.getElementById('closeOverview').onclick=()=>overlay.classList.remove('open');
+overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.classList.remove('open')});
+document.getElementById('printBtn').onclick=()=>window.print();
+document.getElementById('fullBtn').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
+document.addEventListener('keydown',e=>{
+ if(overlay.classList.contains('open')){if(e.key==='Escape')overlay.classList.remove('open');return}
+ if(['ArrowLeft','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1)}
+ if(['ArrowRight','PageUp'].includes(e.key)){e.preventDefault();show(current-1)}
+ if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1);
+});
+let touchX=0;
+document.getElementById('stage').addEventListener('touchstart',e=>touchX=e.changedTouches[0].screenX,{passive:true});
+document.getElementById('stage').addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-touchX;if(Math.abs(dx)>55)show(current+(dx<0?1:-1))},{passive:true});
+show(0);
+</script>
+</body>
+</html>
