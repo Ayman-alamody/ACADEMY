@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتفاقية تعاون في مجال المبيعات وتطوير الأعمال | Chat Center</title>
+    
+    <!-- استيراد خطوط عربية احترافية (Cairo & Tajawal) وخط هندسي للشعار (Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- تحميل Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- إعدادات ألوان وخطوط هوية Chat Center -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#59B93B',
+                            greenHover: '#4ca630',
+                            dark: '#10321B',
+                            darkLight: '#184727',
+                            tint: '#F2F9F0',
+                            border: '#D5EBD0',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Tajawal', 'sans-serif'],
+                        logo: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* تنسيقات مخصصة للخطوط والتمرير */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #F4F7F4;
+            color: #10321B;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* تنسيق حقول الإدخال التفاعلية داخل العقد */
+        .contract-input {
+            background-color: rgba(89, 185, 59, 0.06);
+            border-bottom: 2px dashed #59B93B;
+            color: #10321B;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s ease;
+            min-width: 220px;
+        }
+        .contract-input:focus {
+            outline: none;
+            background-color: rgba(89, 185, 59, 0.14);
+            border-bottom-style: solid;
+            box-shadow: 0 4px 12px rgba(89, 185, 59, 0.12);
+        }
+        .contract-input::placeholder {
+            color: #64748B;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* تنسيقات وضع المعاينة النظيفة للطباعة */
+        body.clean-preview {
+            background-color: #CBD5E1;
+        }
+        body.clean-preview .print-container {
+            max-width: 210mm !important;
+            min-height: 297mm;
+            margin: 24px auto !important;
+            padding: 14mm 16mm !important;
+            border-radius: 4px !important;
+            box-shadow: 0 25px 50px -12px rgba(16, 50, 27, 0.25) !important;
+            border: 1px solid #94A3B8 !important;
+            position: relative;
+        }
+        body.clean-preview .contract-input {
+            background-color: transparent;
+            border-bottom: 1.5px solid #10321B;
+            border-radius: 0;
+        }
+        body.clean-preview .contract-input::placeholder {
+            color: transparent !important;
+        }
+        body.clean-preview .no-clean-preview {
+            display: none !important;
+        }
+
+        /* خيار توفير الحبر (إزالة الخلفيات الملونة الثقيلة مع الحفاظ على الهوية) */
+        body.ink-saver .hero-header {
+            background: #FFFFFF !important;
+            color: #10321B !important;
+            border: 2px solid #59B93B !important;
+        }
+        body.ink-saver .hero-header h1,
+        body.ink-saver .hero-header p {
+            color: #10321B !important;
+        }
+        body.ink-saver .hero-logo-box {
+            background: #59B93B !important;
+        }
+        body.ink-saver footer {
+            background: #FFFFFF !important;
+            color: #10321B !important;
+            border-top: 2px solid #59B93B !important;
+        }
+        body.ink-saver footer p,
+        body.ink-saver footer .font-logo {
+            color: #10321B !important;
+        }
+
+        /* تنسيقات الطباعة الرسمية A4 */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 14mm 16mm;
+            }
+            html, body {
+                background-color: #FFFFFF !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                font-size: 10.5pt;
+                line-height: 1.65;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-container {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+            }
+            .print-body-padding {
+                padding: 16px 4px !important;
+            }
+            .article-card {
+                box-shadow: none !important;
+                border: 1px solid #D5EBD0 !important;
+                margin-bottom: 12px !important;
+                padding: 14px 16px !important;
+            }
+            /* منع انقسام العناوين والبطاقات القصيرة والتوقيعات، مع السماح للمواد الطويلة بالتدفق الطبيعي */
+            h1, h2, h3, h4, .article-header {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            .avoid-break, .signature-section, .party-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .contract-input {
+                background-color: transparent !important;
+                border-bottom: 1.5px solid #10321B !important;
+                border-radius: 0 !important;
+                padding: 0 6px !important;
+                color: #10321B !important;
+            }
+            .contract-input::placeholder {
+                color: transparent !important;
+            }
+            .hero-header {
+                border-radius: 14px !important;
+                padding: 20px 24px !important;
+            }
+            footer {
+                border-radius: 12px !important;
+                padding: 12px 18px !important;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- الشريط العلوي التفاعلي للتحكم والطباعة (يختفي عند الطباعة) -->
+    <header class="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-border shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+            <!-- الهوية المصغرة في شريط الأدوات -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center shadow-sm">
+                    <!-- أيقونة شعار Chat Center -->
+                    <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M76 26C69.5 19.5 60.5 16 50.5 16C30.5 16 15 31 15 50C15 58.2 17.8 65.8 22.6 71.8L17.5 83.5L30.2 79.2C36.1 82.9 43 85 50.5 85C60.5 85 69.5 81.5 76 75" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="38" cy="50" r="4.5" fill="#FFFFFF"/>
+                        <circle cx="51" cy="50" r="4.5" fill="#FFFFFF"/>
+                        <circle cx="64" cy="50" r="4.5" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-brand-dark text-sm sm:text-base">بوابة العقود والاتفاقيات الرسمية</span>
+                        <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-brand-tint text-brand-green border border-brand-border">وثيقة تفاعلية</span>
+                    </div>
+                    <p class="text-xs text-slate-500">يمكنك تعبئة أسماء الممثلين والتواريخ مباشرة ثم الطباعة أو الحفظ كـ PDF</p>
+                </div>
+            </div>
+
+            <!-- أزرار التحكم السريع -->
+            <div class="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                <button id="togglePreviewBtn" onclick="toggleCleanPreview()" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-brand-dark bg-brand-tint hover:bg-brand-border/60 border border-brand-border transition flex items-center gap-2 cursor-pointer">
+                    <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                    <span id="previewBtnText">معاينة الطباعة (A4)</span>
+                </button>
+
+                <button id="toggleInkBtn" onclick="toggleInkMode()" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 border border-slate-200 transition flex items-center gap-1.5 cursor-pointer" title="التبديل بين الطباعة بالألوان الكاملة أو توفير الحبر">
+                    <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                    <span id="inkBtnText">ألوان كاملة</span>
+                </button>
+
+                <button onclick="resetFields()" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-brand-dark hover:bg-slate-100 transition flex items-center gap-1.5 cursor-pointer" title="إعادة ضبط الحقول">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                    <span class="hidden md:inline">مسح الحقول</span>
+                </button>
+
+                <button onclick="prepareAndPrint()" class="px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-dark hover:bg-brand-darkLight shadow-md hover:shadow-lg transition flex items-center gap-2 cursor-pointer">
+                    <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                    </svg>
+                    <span>تجهيز وطباعة / حفظ كـ PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- حاوية الوثيقة الرئيسية -->
+    <main class="flex-grow py-6 sm:py-10 px-4 sm:px-6">
+        <div class="print-container max-w-5xl mx-auto bg-white rounded-3xl shadow-xl border border-brand-border/80 overflow-hidden">
+            
+            <!-- ترويسة الهوية البصرية (Hero Header) بألوان Chat Center -->
+            <div class="hero-header relative bg-gradient-to-bl from-brand-green via-[#52AE35] to-[#449A29] text-white p-6 sm:p-10 overflow-hidden">
+                <!-- زخارف هندسية خفيفة في الخلفية -->
+                <div class="absolute -left-16 -top-16 w-64 h-64 rounded-full bg-white/10 pointer-events-none"></div>
+                <div class="absolute right-10 -bottom-24 w-72 h-72 rounded-full bg-brand-dark/10 pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <!-- شعار Chat Center المطابق للهوية المرفقة -->
+                    <div class="hero-logo-box flex items-center gap-4 bg-white/15 backdrop-blur-sm border border-white/25 px-5 py-3.5 rounded-2xl shadow-sm" dir="ltr">
+                        <svg class="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- حرف C على شكل فقاعة محادثة بيضاء -->
+                            <path d="M84 28C76.5 20.5 66 16.5 54.5 16.5C32.5 16.5 15.5 33 15.5 54C15.5 63.2 18.6 71.6 24 78.3L18.2 91.5L32.4 86.7C39 90.8 46.6 93 54.5 93C66 93 76.5 89 84 81.5" stroke="#FFFFFF" stroke-width="15.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- النقاط الثلاث داخل الفقاعة -->
+                            <circle cx="40.5" cy="54.5" r="5" fill="#FFFFFF"/>
+                            <circle cx="55" cy="54.5" r="5" fill="#FFFFFF"/>
+                            <circle cx="69.5" cy="54.5" r="5" fill="#FFFFFF"/>
+                        </svg>
+                        <div class="font-logo font-extrabold text-brand-dark leading-[0.92] tracking-tight text-2xl sm:text-3xl select-none">
+                            <div>hat</div>
+                            <div>enter</div>
+                        </div>
+                    </div>
+
+                    <!-- بيانات التعريف بالوثيقة -->
+                    <div class="text-right md:text-left">
+                        <div class="flex flex-wrap items-center md:justify-end gap-2 mb-2">
+                            <span class="inline-block px-3.5 py-1 rounded-full bg-brand-dark text-white text-xs font-bold tracking-wide shadow-sm">
+                                وثيقة اتفاقية تعاون استراتيجي
+                            </span>
+                            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-brand-dark text-xs font-extrabold shadow-sm">
+                                رقم المرجع:
+                                <input type="text" id="docRef" placeholder="CC-SA-2026" class="bg-transparent border-b border-brand-dark/50 w-24 text-center font-mono text-xs focus:outline-none">
+                            </span>
+                        </div>
+                        <p class="text-white/95 font-bold text-sm sm:text-base">وكالة شات سنتر – أكاديمية شات سنتر</p>
+                        <p class="text-brand-dark font-bold text-xs sm:text-sm mt-0.5">بالتعاون مع مركز ستارت أب للتدريب والتعلم</p>
+                    </div>
+                </div>
+
+                <!-- عنوان الاتفاقية الرئيسي -->
+                <div class="relative z-10 mt-8 pt-6 border-t border-white/25 text-center">
+                    <h1 class="text-2xl sm:text-4xl font-black text-white drop-shadow-sm leading-tight">
+                        اتفاقية تعاون
+                    </h1>
+                    <p class="text-lg sm:text-2xl font-extrabold text-brand-dark mt-2 bg-white/90 inline-block px-6 py-1.5 rounded-2xl shadow-sm">
+                        في مجال المبيعات وتطوير الأعمال
+                    </p>
+                </div>
+            </div>
+
+            <!-- شريط التنقل السريع بين بنود الاتفاقية (يختفي عند الطباعة) -->
+            <nav class="no-print no-clean-preview bg-brand-tint border-b border-brand-border px-4 sm:px-8 py-3">
+                <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-bold text-brand-dark whitespace-nowrap">
+                    <span class="text-brand-green ml-1 flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
+                        فهرس الاتفاقية:
+                    </span>
+                    <a href="#parties" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">الأطراف والتمهيد</a>
+                    <a href="#art-1" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م1: الموضوع</a>
+                    <a href="#art-2" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م2: مجالات التعاون</a>
+                    <a href="#art-3" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م3: التزامات الطرف الأول</a>
+                    <a href="#art-4" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م4: التزامات الطرف الثاني</a>
+                    <a href="#art-5" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م5: آلية التنفيذ</a>
+                    <a href="#art-6" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م6: المالية</a>
+                    <a href="#art-7" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م7: الهوية</a>
+                    <a href="#art-8" class="px-2.5 py-1 rounded-lg bg-white hover:bg-brand-green hover:text-white border border-brand-border transition">م8-10: المدة والأحكام</a>
+                    <a href="#signatures" class="px-2.5 py-1 rounded-lg bg-brand-dark text-white hover:bg-brand-green transition">م11: التوقيعات</a>
+                </div>
+            </nav>
+
+            <!-- جسم الوثيقة ومحتوى البنود -->
+            <div class="print-body-padding p-6 sm:p-10 space-y-8">
+
+                <!-- قسم أطراف الاتفاقية -->
+                <section id="parties" class="space-y-4">
+                    <div class="flex items-center gap-2 text-brand-dark font-extrabold text-lg">
+                        <span class="w-2.5 h-6 rounded-full bg-brand-green inline-block"></span>
+                        <h2>بين كلٍ من:</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <!-- بطاقة الطرف الأول -->
+                        <div class="party-card rounded-2xl border-2 border-slate-200 bg-slate-50/70 p-5 sm:p-6 relative transition hover:border-brand-green/50">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-lg bg-brand-dark text-white text-xs font-bold">الطرف الأول</span>
+                                <span class="text-xs font-semibold text-slate-400">جهة التدريب والتنفيذ</span>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-brand-dark mb-3">
+                                الطرف الأول: مركز ستارت أب للتدريب والتعلم
+                            </h3>
+                            <div class="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <label for="rep1" class="font-bold text-brand-dark">ويمثله الأستاذ/</label>
+                                    <input type="text" id="rep1" oninput="syncRepName(1, this.value)" placeholder="........................................" class="contract-input flex-1 text-sm sm:text-base">
+                                </div>
+                                <p class="text-slate-600 font-medium">
+                                    ويشار إليه في هذه الاتفاقية بـ <span class="font-extrabold text-brand-dark">«الطرف الأول»</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة الطرف الثاني -->
+                        <div class="party-card rounded-2xl border-2 border-brand-green/40 bg-brand-tint/60 p-5 sm:p-6 relative transition hover:border-brand-green">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-lg bg-brand-green text-white text-xs font-bold">الطرف الثاني</span>
+                                <span class="text-xs font-semibold text-brand-green">الشريك التخصصي في المبيعات</span>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-brand-dark mb-3">
+                                الطرف الثاني: وكالة شات سنتر – أكاديمية شات سنتر
+                            </h3>
+                            <div class="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <label for="rep2" class="font-bold text-brand-dark">ويمثلها الأستاذ/</label>
+                                    <input type="text" id="rep2" oninput="syncRepName(2, this.value)" placeholder="........................................" class="contract-input flex-1 text-sm sm:text-base">
+                                </div>
+                                <p class="text-slate-600 font-medium">
+                                    ويشار إليه في هذه الاتفاقية بـ <span class="font-extrabold text-brand-dark">«الطرف الثاني»</span>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center py-2.5 px-4 rounded-xl bg-brand-tint border border-brand-border text-brand-dark font-bold text-sm sm:text-base">
+                        ويُشار إلى الطرفين مجتمعين بـ <span class="text-brand-green font-black">«الطرفين»</span>.
+                    </div>
+                </section>
+
+                <!-- التمهيد -->
+                <section class="article-card avoid-break rounded-2xl bg-gradient-to-l from-brand-tint to-white border-r-4 border-brand-green border border-brand-border p-6 sm:p-7 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-brand-green text-white flex items-center justify-center font-black shadow-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <h2 class="text-xl font-extrabold text-brand-dark">التمهيد</h2>
+                    </div>
+                    <div class="space-y-3 text-slate-800 text-base leading-loose text-justify">
+                        <p>
+                            انطلاقاً من اهتمام الطرفين بتطوير الكفاءات المهنية وتأهيل الشباب والكوادر لسوق العمل، وتعزيز ثقافة ريادة الأعمال وتطوير المشاريع والمنشآت التجارية، وإيماناً بأهمية تكامل التخصصات التدريبية مع الخبرات العملية والتطبيقية؛
+                        </p>
+                        <p>
+                            وحيث يمتلك الطرف الأول الإمكانات التدريبية والتنظيمية والقنوات التسويقية اللازمة لتنفيذ البرامج والأنشطة التدريبية، ويمتلك الطرف الثاني الخبرة والتخصص في مجالات المبيعات والتسويق البيعي وتطوير الأعمال وإدارة قنوات البيع الرقمية والتقليدية؛
+                        </p>
+                        <p class="font-bold text-brand-dark pt-1">
+                            فقد اتفق الطرفان، وهما بكامل أهليتهما، على إبرام هذه الاتفاقية لتنظيم أوجه التعاون والتكامل بينهما وفقاً للبنود التالية:
+                        </p>
+                    </div>
+                </section>
+
+                <!-- المادة الأولى -->
+                <article id="art-1" class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm">
+                    <div class="article-header flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                        <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs sm:text-sm font-extrabold">المادة الأولى</span>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark">موضوع الاتفاقية</h3>
+                    </div>
+                    <p class="text-slate-800 text-base leading-loose text-justify">
+                        تهدف هذه الاتفاقية إلى التعاون في إضافة وتطوير مجال المبيعات ضمن المجالات التدريبية لمعهد ستارت أب، من خلال الاستفادة من الخبرات المهنية والتدريبية لأكاديمية شات سنتر للمبيعات، والعمل على تصميم وتنفيذ الدورات والبرامج التدريبية والندوات والفعاليات المتخصصة في مجال المبيعات، سواء كانت برامج مستقلة أو أجزاء تخصصية ضمن برامج ريادة الأعمال وتطوير المشاريع.
+                    </p>
+                </article>
+
+                <!-- المادة الثانية -->
+                <article id="art-2" class="article-card rounded-2xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm">
+                    <div class="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                        <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs sm:text-sm font-extrabold">المادة الثانية</span>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark">مجالات التعاون</h3>
+                    </div>
+                    <p class="text-slate-800 font-bold mb-5">يشمل التعاون بين الطرفين المجالات التالية:</p>
+
+                    <div class="space-y-5">
+                        <!-- البند 1 -->
+                        <div class="avoid-break rounded-xl bg-brand-tint/50 border border-brand-border p-5">
+                            <h4 class="font-extrabold text-brand-dark text-base sm:text-lg mb-3 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-brand-green text-white text-xs flex items-center justify-center font-black">1</span>
+                                تنفيذ الدورات التدريبية المتخصصة في المبيعات
+                            </h4>
+                            <ul class="space-y-2.5 text-slate-800 text-sm sm:text-base leading-relaxed pr-2">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>تقديم وتنفيذ دورات تدريبية متخصصة في المبيعات ضمن البرامج التدريبية التي يقدمها معهد ستارت أب.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>تصميم برامج تدريبية تطبيقية تستهدف تأهيل الأفراد لسوق العمل وتطوير مهارات العاملين في الأنشطة التجارية والمؤسسات.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>تنظيم دورات مستقلة في مجالات المبيعات المختلفة، وفق احتياجات السوق والفئات المستهدفة.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>العمل على تطوير مسار تدريبي متخصص في المبيعات ضمن البرامج والخدمات التدريبية للمعهد.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- البند 2 -->
+                        <div class="avoid-break rounded-xl bg-brand-tint/50 border border-brand-border p-5">
+                            <h4 class="font-extrabold text-brand-dark text-base sm:text-lg mb-3 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-brand-green text-white text-xs flex items-center justify-center font-black">2</span>
+                                التكامل في برامج ريادة الأعمال وتطوير المشاريع
+                            </h4>
+                            <ul class="space-y-2.5 text-slate-800 text-sm sm:text-base leading-relaxed pr-2">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>المشاركة في البرامج التدريبية التي ينفذها المعهد لصالح المنظمات والمؤسسات والجهات الداعمة والمشاريع الريادية.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>تولي أكاديمية شات سنتر تقديم وتنفيذ المحاور المتعلقة بالمبيعات ضمن تلك البرامج، بما يشمل تأسيس وإدارة عمليات البيع، واستراتيجيات الوصول للعملاء، وبناء قنوات البيع، وإدارة العملاء، والتفاوض وإغلاق الصفقات.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>تقديم المحتوى التدريبي والاستشارات التخصصية المتعلقة بالمبيعات وفق طبيعة كل برنامج واحتياجات الجهة المستفيدة.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- البند 3 -->
+                        <div class="avoid-break rounded-xl bg-brand-tint/50 border border-brand-border p-5">
+                            <h4 class="font-extrabold text-brand-dark text-base sm:text-lg mb-3 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-brand-green text-white text-xs flex items-center justify-center font-black">3</span>
+                                تنظيم الندوات واللقاءات البيعية
+                            </h4>
+                            <ul class="space-y-2.5 text-slate-800 text-sm sm:text-base leading-relaxed pr-2">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>تنظيم وتيسير الندوات واللقاءات المهنية المتخصصة في مجال المبيعات وتطوير الأعمال.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>استضافة المتخصصين والممارسين في المجال، وإدارة النقاشات المهنية والتطبيقية.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>تنفيذ لقاءات توعوية وتثقيفية تستهدف رواد الأعمال وأصحاب المشاريع والعاملين في المبيعات.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-brand-green font-black mt-1">•</span>
+                                    <span>التعاون في إقامة فعاليات مشتركة تسهم في نشر المعرفة البيعية وتعزيز حضور الطرفين في المجتمع المهني.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- المادة الثالثة والمادة الرابعة (التزامات الطرفين) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- المادة الثالثة -->
+                    <article id="art-3" class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 shadow-sm flex flex-col">
+                        <div class="article-header flex items-center gap-2.5 pb-3 mb-4 border-b border-slate-100">
+                            <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs font-extrabold">المادة الثالثة</span>
+                            <h3 class="text-base sm:text-lg font-extrabold text-brand-dark">التزامات الطرف الأول – معهد ستارت أب</h3>
+                        </div>
+                        <p class="text-slate-800 font-bold mb-3 text-sm sm:text-base">يلتزم الطرف الأول بما يلي:</p>
+                        <ol class="space-y-2.5 text-slate-800 text-sm sm:text-base leading-relaxed flex-grow">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-slate-100 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">1</span>
+                                <span>توفير القاعات والمرافق والتجهيزات اللازمة لتنفيذ البرامج والأنشطة المتفق عليها.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-slate-100 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">2</span>
+                                <span>تولي أعمال التسويق والإعلان والترويج للبرامج التدريبية والندوات عبر قنوات المعهد التسويقية.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-slate-100 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">3</span>
+                                <span>استقبال طلبات التسجيل والتنسيق مع المتدربين والجهات المستفيدة.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-slate-100 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">4</span>
+                                <span>توفير الدعم التنظيمي والإداري اللازم لتنفيذ الأنشطة التدريبية.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-slate-100 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">5</span>
+                                <span>التنسيق المسبق مع الطرف الثاني بشأن مواعيد البرامج والفئات المستهدفة وأعداد المشاركين.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-slate-100 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">6</span>
+                                <span>إدراج مجال المبيعات ضمن المجالات التدريبية التي يقدمها المعهد، وفق البرامج التي يتم الاتفاق عليها بين الطرفين.</span>
+                            </li>
+                        </ol>
+                    </article>
+
+                    <!-- المادة الرابعة -->
+                    <article id="art-4" class="article-card avoid-break rounded-2xl bg-brand-tint/30 border border-brand-border p-6 shadow-sm flex flex-col">
+                        <div class="article-header flex items-center gap-2.5 pb-3 mb-4 border-b border-brand-border/70">
+                            <span class="px-3 py-1 rounded-xl bg-brand-green text-white text-xs font-extrabold">المادة الرابعة</span>
+                            <h3 class="text-base sm:text-lg font-extrabold text-brand-dark">التزامات الطرف الثاني – أكاديمية شات سنتر للمبيعات</h3>
+                        </div>
+                        <p class="text-slate-800 font-bold mb-3 text-sm sm:text-base">يلتزم الطرف الثاني بما يلي:</p>
+                        <ol class="space-y-2.5 text-slate-800 text-sm sm:text-base leading-relaxed flex-grow">
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-brand-green/15 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">1</span>
+                                <span>توفير المدربين والمتخصصين المؤهلين لتنفيذ البرامج والأنشطة التدريبية المتفق عليها.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-brand-green/15 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">2</span>
+                                <span>إعداد وتطوير المحتوى التدريبي والمواد التعليمية الخاصة ببرامج المبيعات.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-brand-green/15 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">3</span>
+                                <span>تصميم البرامج التدريبية بما يتناسب مع احتياجات الفئات المستهدفة وطبيعة سوق العمل.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-brand-green/15 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">4</span>
+                                <span>تيسير وتنفيذ الدورات التدريبية والندوات واللقاءات المتخصصة في مجال المبيعات.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-brand-green/15 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">5</span>
+                                <span>تقديم الدعم الفني والتخصصي فيما يتعلق بالمحاور البيعية ضمن برامج ريادة الأعمال وتطوير المشاريع.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="w-5 h-5 rounded-md bg-brand-green/15 text-brand-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-1">6</span>
+                                <span>التنسيق مع الطرف الأول بشأن متطلبات تنفيذ البرامج وتقييم نتائجها وتطويرها.</span>
+                            </li>
+                        </ol>
+                    </article>
+                </div>
+
+                <!-- المادة الخامسة -->
+                <article id="art-5" class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm">
+                    <div class="article-header flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                        <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs sm:text-sm font-extrabold">المادة الخامسة</span>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark">آلية تنفيذ البرامج</h3>
+                    </div>
+                    <ol class="space-y-3 text-slate-800 text-sm sm:text-base leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                            <span>يتم الاتفاق مسبقاً بين الطرفين على طبيعة كل برنامج تدريبي أو ندوة، وأهدافه، ومدته، والفئة المستهدفة، ومواعيد التنفيذ.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                            <span>يتم تحديد مسؤوليات التنفيذ والتسويق والتنظيم لكل نشاط بصورة واضحة قبل الإعلان عنه.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                            <span>يجوز للطرفين تنفيذ برامج مشتركة أو برامج يتولى أحد الطرفين تنفيذها ضمن نطاق تخصصه، مع الاستفادة من إمكانات الطرف الآخر.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                            <span>يتم توثيق تفاصيل كل برنامج، بما في ذلك الجوانب المالية والتشغيلية، بموجب ملحق أو اتفاق تنفيذي مستقل.</span>
+                        </li>
+                    </ol>
+                </article>
+
+                <!-- المادة السادسة -->
+                <article id="art-6" class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm">
+                    <div class="article-header flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                        <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs sm:text-sm font-extrabold">المادة السادسة</span>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark">الجوانب المالية</h3>
+                    </div>
+                    <div class="space-y-2.5 text-slate-800 text-base leading-loose text-justify">
+                        <p>
+                            يتفق الطرفان على أن المقابل المالي وآلية توزيع الإيرادات والتكاليف المتعلقة بالبرامج التدريبية والندوات يتم تحديدها بصورة مستقلة لكل نشاط، وفق طبيعة البرنامج والأدوار التي يؤديها كل طرف.
+                        </p>
+                        <p class="font-semibold text-brand-dark">
+                            ويتم توثيق ذلك بموجب اتفاق مالي أو ملحق تنفيذي معتمد من الطرفين قبل بدء تنفيذ النشاط.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- المادة السابعة -->
+                <article id="art-7" class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm">
+                    <div class="article-header flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                        <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs sm:text-sm font-extrabold">المادة السابعة</span>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark">الهوية والحقوق الفكرية</h3>
+                    </div>
+                    <ol class="space-y-3 text-slate-800 text-sm sm:text-base leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                            <span>يحتفظ كل طرف بحقوقه المتعلقة باسمه التجاري وهويته المؤسسية ومواده ومحتوياته التدريبية السابقة على هذه الاتفاقية.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                            <span>يجوز استخدام الهوية التجارية للطرفين في الإعلان عن الأنشطة المشتركة بعد التنسيق والموافقة المسبقة.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                            <span>لا يجوز إعادة استخدام أو نشر أو بيع المحتوى التدريبي الخاص بأي طرف خارج نطاق التعاون دون موافقته.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                            <span>يتم الاتفاق مسبقاً على ملكية واستخدام أي محتوى أو مادة تدريبية يتم تطويرها بشكل مشترك.</span>
+                        </li>
+                    </ol>
+                </article>
+
+                <!-- المادة الثامنة والمادة التاسعة -->
+                <div id="art-8" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- المادة الثامنة -->
+                    <article class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+                        <div class="article-header flex items-center gap-2.5 pb-3 mb-4 border-b border-slate-100">
+                            <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs font-extrabold">المادة الثامنة</span>
+                            <h3 class="text-lg font-extrabold text-brand-dark">مدة الاتفاقية</h3>
+                        </div>
+                        <p class="text-slate-800 text-sm sm:text-base leading-loose text-justify">
+                            تسري هذه الاتفاقية لمدة سنة واحدة تبدأ من تاريخ توقيعها، وتتجدد باتفاق الطرفين، ما لم يُخطر أحد الطرفين الطرف الآخر برغبته في عدم التجديد قبل ثلاثين يوماً من تاريخ انتهائها.
+                        </p>
+                    </article>
+
+                    <!-- المادة التاسعة -->
+                    <article class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+                        <div class="article-header flex items-center gap-2.5 pb-3 mb-4 border-b border-slate-100">
+                            <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs font-extrabold">المادة التاسعة</span>
+                            <h3 class="text-lg font-extrabold text-brand-dark">تعديل الاتفاقية وإنهاؤها</h3>
+                        </div>
+                        <ol class="space-y-2.5 text-slate-800 text-sm sm:text-base leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="font-extrabold text-brand-green">1.</span>
+                                <span>يجوز تعديل أي بند من بنود هذه الاتفاقية بموجب ملحق كتابي موقع من الطرفين.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="font-extrabold text-brand-green">2.</span>
+                                <span>يجوز لأي طرف إنهاء الاتفاقية بإشعار كتابي للطرف الآخر قبل ثلاثين يوماً.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="font-extrabold text-brand-green">3.</span>
+                                <span>لا يؤثر إنهاء الاتفاقية على الالتزامات المالية أو البرامج التي سبق اعتمادها والاتفاق على تنفيذها، ما لم يتفق الطرفان على خلاف ذلك.</span>
+                            </li>
+                        </ol>
+                    </article>
+                </div>
+
+                <!-- المادة العاشرة -->
+                <article class="article-card avoid-break rounded-2xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm">
+                    <div class="article-header flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                        <span class="px-3 py-1 rounded-xl bg-brand-dark text-white text-xs sm:text-sm font-extrabold">المادة العاشرة</span>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark">أحكام عامة</h3>
+                    </div>
+                    <ol class="space-y-3 text-slate-800 text-sm sm:text-base leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                            <span>تمثل هذه الاتفاقية إطاراً عاماً للتعاون والتكامل التدريبي بين الطرفين، ولا يترتب عليها إنشاء كيان قانوني أو شراكة ملكية أو علاقة توظيف بينهما.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                            <span>يلتزم الطرفان بالتعاون المهني والمحافظة على سمعة ومصالح كل منهما.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                            <span>تتم معالجة أي خلاف ينشأ عن تفسير أو تنفيذ هذه الاتفاقية ودياً بالتشاور بين الطرفين.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-tint border border-brand-border text-brand-dark font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                            <span>لا يجوز لأي طرف تفويض التزاماته الجوهرية لطرف ثالث دون موافقة الطرف الآخر.</span>
+                        </li>
+                    </ol>
+                </article>
+
+                <!-- المادة الحادية عشرة والتوقيعات -->
+                <section id="signatures" class="signature-section rounded-3xl bg-gradient-to-b from-brand-tint/80 to-white border-2 border-brand-green/50 p-6 sm:p-8 shadow-md">
+                    <div class="flex items-center gap-3 pb-3 mb-4 border-b border-brand-border">
+                        <span class="px-3.5 py-1 rounded-xl bg-brand-green text-white text-xs sm:text-sm font-extrabold">المادة الحادية عشرة</span>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark">نسخ الاتفاقية</h3>
+                    </div>
+
+                    <p class="text-brand-dark font-bold text-base leading-relaxed mb-7">
+                        حررت هذه الاتفاقية من نسختين أصليتين، تسلم كل طرف نسخة للعمل بموجبها، وقد اطلع الطرفان على جميع بنودها ووافقا عليها.
+                    </p>
+
+                    <!-- بطاقتا التوقيع والاعتماد -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- توقيع الطرف الأول -->
+                        <div class="rounded-2xl bg-white border-2 border-slate-200 p-5 sm:p-6 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                                    <h4 class="font-extrabold text-brand-dark text-base sm:text-lg">
+                                        الطرف الأول: مركز ستارت أب للتدريب والتعلم
+                                    </h4>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-2">
+                                        <label for="sigName1" class="font-bold text-slate-700 text-sm sm:text-base w-16">الاسم:</label>
+                                        <input type="text" id="sigName1" oninput="syncRepName(1, this.value, true)" placeholder="...................................." class="contract-input flex-1 text-sm sm:text-base">
+                                    </div>
+
+                                    <div>
+                                        <span class="font-bold text-slate-700 text-sm sm:text-base block mb-2">التوقيع:</span>
+                                        <div class="h-24 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50/60 flex items-end justify-center pb-2">
+                                            <span class="text-xs text-slate-400 select-none">التوقيع والختم الرسمي</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-2 pt-1">
+                                        <label for="sigDate1" class="font-bold text-slate-700 text-sm sm:text-base w-16">التاريخ:</label>
+                                        <input type="text" id="sigDate1" placeholder="...................................." class="contract-input flex-1 text-sm sm:text-base">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- توقيع الطرف الثاني -->
+                        <div class="rounded-2xl bg-white border-2 border-brand-green/50 p-5 sm:p-6 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-brand-border/60 pb-3 mb-4">
+                                    <h4 class="font-extrabold text-brand-dark text-base sm:text-lg">
+                                        الطرف الثاني: وكالة شات سنتر – أكاديمية شات سنتر
+                                    </h4>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-2">
+                                        <label for="sigName2" class="font-bold text-slate-700 text-sm sm:text-base w-16">الاسم:</label>
+                                        <input type="text" id="sigName2" oninput="syncRepName(2, this.value, true)" placeholder="...................................." class="contract-input flex-1 text-sm sm:text-base">
+                                    </div>
+
+                                    <div>
+                                        <span class="font-bold text-slate-700 text-sm sm:text-base block mb-2">التوقيع:</span>
+                                        <div class="h-24 rounded-xl border-2 border-dashed border-brand-green/40 bg-brand-tint/40 flex items-end justify-center pb-2">
+                                            <span class="text-xs text-brand-green/70 select-none">التوقيع والختم الرسمي</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-2 pt-1">
+                                        <label for="sigDate2" class="font-bold text-slate-700 text-sm sm:text-base w-16">التاريخ:</label>
+                                        <input type="text" id="sigDate2" placeholder="...................................." class="contract-input flex-1 text-sm sm:text-base">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- تذييل الوثيقة بهوية Chat Center -->
+            <footer class="bg-brand-dark text-white px-6 sm:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 border-t-4 border-brand-green">
+                <div class="flex items-center gap-3" dir="ltr">
+                    <div class="w-9 h-9 rounded-lg bg-brand-green flex items-center justify-center">
+                        <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M76 26C69.5 19.5 60.5 16 50.5 16C30.5 16 15 31 15 50C15 58.2 17.8 65.8 22.6 71.8L17.5 83.5L30.2 79.2C36.1 82.9 43 85 50.5 85C60.5 85 69.5 81.5 76 75" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="38" cy="50" r="4.5" fill="#FFFFFF"/>
+                            <circle cx="51" cy="50" r="4.5" fill="#FFFFFF"/>
+                            <circle cx="64" cy="50" r="4.5" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="font-logo font-extrabold text-white text-base leading-none">
+                        Chat Center
+                    </div>
+                </div>
+
+                <p class="text-xs sm:text-sm text-white/80 text-center sm:text-right">
+                    وكالة شات سنتر – أكاديمية شات سنتر &nbsp;|&nbsp; اتفاقية تعاون في مجال المبيعات وتطوير الأعمال
+                </p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- إشعار تفاعلي أنيق عند المسح أو التحديث -->
+    <div id="toast" class="no-print fixed bottom-5 left-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-brand-dark text-white px-4 py-3 rounded-xl shadow-lg border border-brand-green flex items-center gap-2.5 text-sm font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-green"></span>
+        <span id="toastMsg">تم تحديث البيانات</span>
+    </div>
+
+    <script>
+        // مزامنة اسم ممثل كل طرف بين مقدمة العقد وخانة التوقيع تلقائياً
+        function syncRepName(partyNumber, value, fromSignature = false) {
+            const topInput = document.getElementById(`rep${partyNumber}`);
+            const bottomInput = document.getElementById(`sigName${partyNumber}`);
+            if (fromSignature) {
+                topInput.value = value;
+            } else {
+                bottomInput.value = value;
+            }
+        }
+
+        // التبديل بين وضع التحرير ووضع المعاينة النظيفة للطباعة
+        function toggleCleanPreview() {
+            const isClean = document.body.classList.toggle('clean-preview');
+            const btnText = document.getElementById('previewBtnText');
+            btnText.textContent = isClean ? 'العودة للتحرير' : 'معاينة الطباعة (A4)';
+            showToast(isClean ? 'تم تفعيل وضع معاينة ورق A4 النظيفة' : 'تم تفعيل وضع التحرير التفاعلي');
+        }
+
+        // التبديل بين الألوان الكاملة وتوفير الحبر
+        function toggleInkMode() {
+            const isInkSaver = document.body.classList.toggle('ink-saver');
+            const btnText = document.getElementById('inkBtnText');
+            btnText.textContent = isInkSaver ? 'توفير الحبر' : 'ألوان كاملة';
+            showToast(isInkSaver ? 'تم تفعيل وضع توفير الحبر للطباعة' : 'تم تفعيل وضع الألوان الكاملة للهوية');
+        }
+
+        // تجهيز الوثيقة وفتح نافذة الطباعة / الحفظ كـ PDF
+        function prepareAndPrint() {
+            window.print();
+        }
+
+        // مسح جميع الحقول التفاعلية
+        function resetFields() {
+            const inputs = document.querySelectorAll('.contract-input, #docRef');
+            inputs.forEach(input => input.value = '');
+            showToast('تم مسح جميع الحقول بنجاح');
+        }
+
+        // إظهار إشعار خفيف (بدون استخدام alert)
+        let toastTimer;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
