@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدخل إلى سوق العمل والممارسة المهنية في إدارة الأعمال الرقمية | العرض التفاعلي</title>
+    <!-- خطوط عربية عصرية عالية الوضوح للقاعات الدراسية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Cairo:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['IBM Plex Sans Arabic', 'sans-serif'],
+                        display: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        royal: {
+                            950: '#060B19',
+                            900: '#0B132B',
+                            800: '#1C2541',
+                            700: '#2A365C',
+                        },
+                        gold: {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        },
+                        emeraldGlow: {
+                            400: '#34D399',
+                            500: '#10B981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Cairo', sans-serif;
+        }
+        /* شريط تمرير أنيق */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.35); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(245, 158, 11, 0.7); }
+
+        /* تأثيرات دخول الشرائح */
+        .slide-stage-anim {
+            animation: stageReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes stageReveal {
+            from { opacity: 0; transform: translateY(18px) scale(0.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* خلفيات هندسية فاخرة */
+        .bg-royal-mesh {
+            background-color: #060B19;
+            background-image: 
+                radial-gradient(at 15% 15%, rgba(16, 185, 129, 0.14) 0px, transparent 50%),
+                radial-gradient(at 85% 80%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        }
+        .light-mesh {
+            background-color: #F4F7FB;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(245, 158, 11, 0.08) 0px, transparent 50%),
+                linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* بطاقة زجاجية مطورة */
+        .neo-glass {
+            background: rgba(17, 25, 48, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+        }
+        html:not(.dark) .neo-glass {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07);
+        }
+
+        /* وضع العرض السينمائي (إخفاء القوائم للتركيز الكامل) */
+        body.cinema-mode aside,
+        body.cinema-mode header {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="bg-royal-mesh text-slate-100 h-screen flex flex-col overflow-hidden transition-colors duration-300 select-none">
+
+    <!-- الشريط العلوي الاحترافي -->
+    <header class="h-16 neo-glass border-b border-white/10 px-4 lg:px-6 flex items-center justify-between z-30 shrink-0">
+        <div class="flex items-center gap-3">
+            <button id="sidebarToggle" class="w-10 h-10 rounded-xl bg-white/5 dark:bg-white/5 hover:bg-amber-500/20 text-amber-400 border border-white/10 flex items-center justify-center transition" title="فهرس الأقسام والشرائح">
+                <i class="fa-solid fa-layer-group"></i>
+            </button>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-emerald-500 p-[2px] shadow-lg shadow-amber-500/20">
+                    <div class="w-full h-full bg-royal-950 rounded-[10px] flex items-center justify-center text-amber-400 font-black">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                </div>
+                <div class="hidden sm:block">
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm font-black text-slate-900 dark:text-white">مدخل إلى سوق العمل والممارسة المهنية في إدارة الأعمال الرقمية</span>
+                        <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30">المحاضرة 01</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">برنامج التسويق الرقمي | جامعة العلوم والتكنولوجيا - عدن & أكاديمية شات سنتر</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل السريع بين الأقسام الثمانية -->
+        <div id="sectionPills" class="hidden xl:flex items-center gap-1.5 bg-slate-200/60 dark:bg-white/5 p-1 rounded-xl border border-slate-300/50 dark:border-white/10">
+            <!-- يملأ ديناميكياً -->
+        </div>
+
+        <!-- أدوات المحاضر والعرض -->
+        <div class="flex items-center gap-2">
+            <button id="notesToggleBtn" class="px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition">
+                <i class="fa-solid fa-microphone-lines"></i>
+                <span class="hidden md:inline">دليل المحاضر</span>
+            </button>
+
+            <button id="cinemaToggleBtn" class="px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition" title="وضع التركيز (إخفاء القوائم)">
+                <i class="fa-solid fa-tv"></i>
+                <span class="hidden md:inline">وضع العرض</span>
+            </button>
+
+            <button id="themeBtn" class="w-10 h-10 rounded-xl bg-slate-200/70 dark:bg-white/5 hover:bg-amber-500/20 text-slate-700 dark:text-amber-300 border border-slate-300/50 dark:border-white/10 flex items-center justify-center transition" title="تبديل الإضاءة">
+                <i id="themeIcon" class="fa-solid fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- شريط التقدم المضيء -->
+    <div class="w-full h-1 bg-slate-200 dark:bg-white/5 shrink-0">
+        <div id="topProgress" class="h-full bg-gradient-to-l from-amber-400 via-emerald-400 to-cyan-400 transition-all duration-300" style="width: 3%;"></div>
+    </div>
+
+    <!-- الجسم الرئيسي -->
+    <div class="flex-1 flex overflow-hidden relative">
+
+        <!-- القائمة الجانبية الذكية -->
+        <aside id="leftSidebar" class="w-80 neo-glass border-l border-slate-200 dark:border-white/10 flex flex-col shrink-0 z-20 absolute lg:static inset-y-0 right-0 transition-all duration-300">
+            <div class="p-3.5 border-b border-slate-200 dark:border-white/10 space-y-2.5">
+                <div class="relative">
+                    <i class="fa-solid fa-search absolute right-3 top-3 text-slate-400 text-xs"></i>
+                    <input type="text" id="searchBox" placeholder="ابحث في الشرائح..." class="w-full pr-8 pl-3 py-2 text-xs rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white focus:border-amber-400 outline-none">
+                </div>
+                <div class="grid grid-cols-4 gap-1 text-[11px] font-bold">
+                    <button onclick="setTypeFilter('all')" data-f="all" class="t-filter py-1.5 rounded-lg bg-amber-500 text-slate-950 font-extrabold">الكل</button>
+                    <button onclick="setTypeFilter('conceptual')" data-f="conceptual" class="t-filter py-1.5 rounded-lg bg-slate-200/70 dark:bg-white/5 text-slate-600 dark:text-slate-300">مفاهيم</button>
+                    <button onclick="setTypeFilter('explanatory')" data-f="explanatory" class="t-filter py-1.5 rounded-lg bg-slate-200/70 dark:bg-white/5 text-slate-600 dark:text-slate-300">مخططات</button>
+                    <button onclick="setTypeFilter('interactive')" data-f="interactive" class="t-filter py-1.5 rounded-lg bg-slate-200/70 dark:bg-white/5 text-slate-600 dark:text-slate-300">تفاعلي</button>
+                </div>
+            </div>
+
+            <div id="tocList" class="flex-1 overflow-y-auto p-3 space-y-3">
+                <!-- قائمة الأقسام والشرائح -->
+            </div>
+        </aside>
+
+        <!-- مسرح عرض الشرائح -->
+        <main class="flex-1 flex flex-col overflow-hidden relative">
+            <!-- زر الخروج من وضع العرض السينمائي -->
+            <button id="exitCinemaBtn" onclick="toggleCinemaMode()" class="hidden fixed top-4 left-4 z-50 px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-black text-xs shadow-lg">
+                <i class="fa-solid fa-compress ml-1"></i> إنهاء وضع التركيز
+            </button>
+
+            <div id="stageScroller" class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-10 flex items-center justify-center select-text">
+                <div id="slideContainer" class="w-full max-w-6xl mx-auto">
+                    <!-- محتوى الشريحة يظهر هنا -->
+                </div>
+            </div>
+
+            <!-- شريط ملاحظات المحاضر المنبثق -->
+            <div id="notesDrawer" class="hidden neo-glass border-t-2 border-amber-400 px-6 py-4 z-20">
+                <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-lightbulb text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-black text-amber-500 dark:text-amber-400">توجيهات المحاضر وإدارة النقاش</span>
+                                <span id="noteTime" class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 font-bold"></span>
+                            </div>
+                            <p id="noteBody" class="text-sm text-slate-700 dark:text-slate-200 mt-1 leading-relaxed"></p>
+                        </div>
+                    </div>
+                    <button onclick="toggleNotesPanel()" class="text-slate-400 hover:text-amber-400 p-1.5">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التحكم السفلي -->
+            <footer class="h-16 neo-glass border-t border-slate-200 dark:border-white/10 px-4 lg:px-8 flex items-center justify-between shrink-0 z-10">
+                <button id="prevBtn" class="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm bg-slate-200/80 dark:bg-white/5 hover:bg-amber-500/20 text-slate-800 dark:text-white disabled:opacity-30 transition">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>السابق</span>
+                </button>
+
+                <div class="flex items-center gap-3">
+                    <span id="badgeSec" class="hidden md:inline-block text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border border-emerald-500/25"></span>
+                    <div class="px-4 py-1.5 rounded-full bg-slate-200/80 dark:bg-white/5 border border-slate-300/50 dark:border-white/10 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">
+                        <span id="slideIdxLabel" class="text-amber-500 dark:text-amber-400 font-black">1</span>
+                        <span class="mx-1 opacity-50">/</span>
+                        <span id="slideTotalLabel">35</span>
+                    </div>
+                    <span id="badgeType" class="hidden sm:inline-block text-xs font-bold px-3 py-1 rounded-full"></span>
+                </div>
+
+                <button id="nextBtn" class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-black text-sm bg-gradient-to-l from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-lg shadow-amber-500/20 disabled:opacity-30 transition">
+                    <span>التالي</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // =========================================================================
+        // بيانات الشرائح الكاملة بتصميم بصري متجدد وتفاعلي
+        // =========================================================================
+        const slides = [
+            // --- القسم الأول ---
+            {
+                num: '01', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'الغلاف: مدخل إلى سوق العمل والممارسة المهنية في إدارة الأعمال الرقمية',
+                type: 'conceptual', time: '3 دقائق',
+                note: 'رحب بالحضور، واستعرض هوية البرنامج التدريبي المشترك بين جامعة العلوم والتكنولوجيا بعدن وأكاديمية شات سنتر.',
+                html: () => `
+                    <div class="relative rounded-[2rem] overflow-hidden neo-glass p-8 sm:p-14 lg:p-16 border border-amber-500/25 shadow-2xl">
+                        <div class="absolute -top-32 -left-32 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-8 space-y-6 text-right">
+                                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-500 dark:text-amber-300 text-xs sm:text-sm font-extrabold">
+                                    <i class="fa-solid fa-sparkles"></i>
+                                    <span>المحاضرة الأولى | برنامج التسويق الرقمي</span>
+                                </div>
+
+                                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight text-slate-900 dark:text-white">
+                                    مدخل إلى سوق العمل <span class="text-transparent bg-clip-text bg-gradient-to-l from-amber-400 to-emerald-400">والممارسة المهنية في إدارة الأعمال الرقمية</span>
+                                </h1>
+
+                                <p class="text-lg sm:text-2xl text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                                    كيف نفهم الأعمال، ونكتشف المشكلات، ونحوّل المعرفة والتقنية إلى نتائج قابلة للقياس؟
+                                </p>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                                    <div class="p-4 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-3.5">
+                                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-500 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
+                                            <i class="fa-solid fa-building-columns"></i>
+                                        </div>
+                                        <div>
+                                            <span class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block">كلية العلوم الإدارية والإنسانية</span>
+                                            <span class="text-sm font-extrabold text-slate-900 dark:text-white">جامعة العلوم والتكنولوجيا – المركز الرئيس عدن</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-4 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-3.5">
+                                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                            <i class="fa-solid fa-comments-dollar"></i>
+                                        </div>
+                                        <div>
+                                            <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 block">الشراكة التدريبية والتقنية</span>
+                                            <span class="text-sm font-extrabold text-slate-900 dark:text-white">بالتعاون مع أكاديمية شات سنتر</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- بطاقة بصرية جانبية -->
+                            <div class="lg:col-span-4 flex justify-center">
+                                <div class="w-full max-w-xs p-6 rounded-3xl bg-gradient-to-b from-royal-800 to-royal-950 border border-white/15 text-white shadow-2xl space-y-5">
+                                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                                        <span class="text-xs font-bold text-amber-400">معادلة التميز المهني</span>
+                                        <i class="fa-solid fa-chart-line text-emerald-400"></i>
+                                    </div>
+                                    <div class="space-y-3 text-sm">
+                                        <div class="p-3 rounded-xl bg-white/5 flex items-center gap-3">
+                                            <i class="fa-solid fa-graduation-cap text-amber-400"></i>
+                                            <span>معرفة أكاديمية متينة</span>
+                                        </div>
+                                        <div class="text-center text-amber-400 font-black">+</div>
+                                        <div class="p-3 rounded-xl bg-white/5 flex items-center gap-3">
+                                            <i class="fa-solid fa-briefcase text-emerald-400"></i>
+                                            <span>فهم عميق لمنطق الأعمال</span>
+                                        </div>
+                                        <div class="text-center text-amber-400 font-black">+</div>
+                                        <div class="p-3 rounded-xl bg-white/5 flex items-center gap-3">
+                                            <i class="fa-solid fa-microchip text-cyan-400"></i>
+                                            <span>توظيف ذكي للتقنية</span>
+                                        </div>
+                                        <div class="p-3.5 rounded-xl bg-gradient-to-l from-amber-500 to-emerald-500 text-slate-950 font-black text-center shadow-lg">
+                                            = قيمة مهنية قابلة للقياس
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '02', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'لماذا نبدأ من هنا؟',
+                type: 'conceptual', time: '4 دقائق',
+                note: 'ناقش الطلاب في أن تعلم الأدوات دون فهم بيئة الأعمال يشبه تعلم القيادة دون معرفة الوجهة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-8">
+                        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-6">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500 uppercase tracking-wider">الشريحة 02 | التأسيس الذهني</span>
+                                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">لماذا نبدأ من هنا؟</h2>
+                            </div>
+                            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl">
+                                قبل أن نتعلم أداة أو ننفذ حملة أو ندير محادثة، نحتاج إلى فهم البيئة التي نعمل داخلها:
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                            ${[
+                                { q: 'كيف تعمل الشركات والمؤسسات؟', icon: 'fa-sitemap' },
+                                { q: 'ما الذي تسعى إلى تحقيقه؟', icon: 'fa-bullseye' },
+                                { q: 'كيف تصل إلى عملائها وتحقق إيراداتها؟', icon: 'fa-coins' },
+                                { q: 'ما المشكلات التي تواجهها؟', icon: 'fa-triangle-exclamation' },
+                                { q: 'أين يمكن لمهاراتنا أن تصنع فرقاً؟', icon: 'fa-wand-magic-sparkles' }
+                            ].map((item, i) => `
+                                <div class="p-5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-amber-400 transition flex flex-col justify-between gap-4">
+                                    <div class="w-11 h-11 rounded-xl bg-amber-500/15 text-amber-500 dark:text-amber-400 flex items-center justify-center text-lg">
+                                        <i class="fa-solid ${item.icon}"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">سؤال 0${i + 1}</span>
+                                        <h3 class="text-base font-extrabold text-slate-900 dark:text-white mt-1 leading-snug">${item.q}</h3>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-gradient-to-l from-royal-900 to-emerald-950 border border-emerald-500/30 text-white flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                            <p class="text-lg sm:text-xl font-extrabold leading-relaxed">
+                                الهدف ليس أن نتعلم تنفيذ المهام فقط، بل أن نفهم <span class="text-amber-400">لماذا ننفذها</span> وكيف <span class="text-emerald-400">نحقق منها قيمة</span>.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '03', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'ماذا ستتعلم في هذه المحاضرة؟',
+                type: 'conceptual', time: '3 دقائق',
+                note: 'استعرض المخرجات الثمانية بسرعة ووضوح كخريطة طريق للمحاضرة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div>
+                                <span class="text-xs font-extrabold text-emerald-500">الشريحة 03 | مخرجات التعلم</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ماذا ستتعلم في هذه المحاضرة؟</h2>
+                            </div>
+                            <span class="px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-300 border border-amber-500/30 text-xs font-bold">
+                                بنهاية هذه المحاضرة، ستكون قادراً على:
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                            ${[
+                                'فهم طبيعة سوق العمل ومتطلباته.',
+                                'التمييز بين المعرفة الأكاديمية والقدرة المهنية.',
+                                'فهم كيفية عمل الشركات ونماذج أعمالها.',
+                                'التعرف إلى مراحل دراسة السوق وبناء النشاط التجاري.',
+                                'فهم العلاقة بين التسويق والمبيعات والتشغيل.',
+                                'التفكير بعقلية العمليات وتحسين الأداء.',
+                                'إدراك دور التكنولوجيا في إدارة الأعمال.',
+                                'تحليل مشكلة تجارية واقتراح حلول قابلة للقياس.'
+                            ].map((txt, idx) => `
+                                <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-4 hover:border-emerald-400 transition">
+                                    <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-400 text-slate-950 font-black flex items-center justify-center shrink-0">${idx + 1}</span>
+                                    <span class="font-bold text-slate-800 dark:text-slate-100 text-base">${txt}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '04', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'المحور الأول: سوق العمل – ماذا ينتظر منك؟',
+                type: 'conceptual', time: '2 دقيقة',
+                note: 'شريحة فاصلة لبداية المحور الأول.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-royal-900 via-royal-800 to-emerald-950 border border-amber-500/30 p-10 sm:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+                        <div class="max-w-3xl mx-auto space-y-6 relative z-10">
+                            <span class="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-sm font-extrabold">المحور الأول</span>
+                            <h2 class="text-3xl sm:text-5xl font-black leading-tight">سوق العمل – ماذا ينتظر منك؟</h2>
+                            <div class="w-24 h-1 bg-gradient-to-l from-amber-400 to-emerald-400 mx-auto rounded-full"></div>
+                            <p class="text-xl sm:text-3xl font-bold text-slate-200 leading-relaxed">
+                                "سوق العمل لا يبحث فقط عمّن يعرف، بل عمّن يستطيع أن <span class="text-amber-400">يوظف معرفته لتحقيق نتيجة</span>."
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '05', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'ما المقصود بسوق العمل؟',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'اشرح العناصر الثلاثة لسوق العمل وكيف تتولد الفرصة المهنية.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-8">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 05 | تشريح السوق</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ما المقصود بسوق العمل؟</h2>
+                            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mt-3 p-4 rounded-2xl bg-slate-100 dark:bg-white/5 border-r-4 border-amber-400">
+                                سوق العمل هو البيئة التي يلتقي فيها الطلب على المهارات والخدمات المهنية مع الأفراد القادرين على تقديمها. ويتكون من ثلاثة عناصر رئيسية:
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <div class="p-6 rounded-2xl bg-slate-100/80 dark:bg-white/5 border-t-4 border-amber-400 space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-500 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                <h3 class="text-xl font-black text-slate-900 dark:text-white">أصحاب العمل</h3>
+                                <p class="text-slate-600 dark:text-slate-300">المؤسسات والشركات التي تحتاج إلى كفاءات.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-100/80 dark:bg-white/5 border-t-4 border-emerald-400 space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <h3 class="text-xl font-black text-slate-900 dark:text-white">المهنيون</h3>
+                                <p class="text-slate-600 dark:text-slate-300">الأفراد الذين يمتلكون المعارف والمهارات والخبرات.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-slate-100/80 dark:bg-white/5 border-t-4 border-cyan-400 space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </div>
+                                <h3 class="text-xl font-black text-slate-900 dark:text-white">الفرص الوظيفية</h3>
+                                <p class="text-slate-600 dark:text-slate-300">الاحتياجات التي تتطلب أداء مهام أو معالجة مشكلات محددة.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-center font-extrabold text-emerald-700 dark:text-emerald-300 text-lg">
+                            <i class="fa-solid fa-handshake ml-2"></i>
+                            الفرصة المهنية تظهر عندما تتوافق قدرة الشخص مع احتياج حقيقي لدى المؤسسة.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '06', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'ماذا نعني بتشبع سوق العمل؟',
+                type: 'conceptual', time: '4 دقائق',
+                note: 'وضح أن التشبع يضرب المتشابهين نظرياً، ويفتح الأبواب للمتميزين عملياً.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-rose-500">الشريحة 06 | قراءة الواقع</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ماذا نعني بتشبع سوق العمل؟</h2>
+                            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                                يحدث التشبع النسبي عندما يزداد عدد المتقدمين الذين يمتلكون مؤهلات ومهارات متشابهة عن عدد الفرص المتاحة في تخصص أو مستوى وظيفي معين.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h3 class="text-sm font-extrabold text-amber-500">وقد تظهر نتائجه في:</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                                ${[
+                                    'ارتفاع المنافسة على الوظائف.',
+                                    'تشابه السير الذاتية والمؤهلات.',
+                                    'صعوبة التميّز بين المتقدمين.',
+                                    'تراجع فرص من يكتفون بالمعرفة النظرية.',
+                                    'زيادة أهمية المهارات التطبيقية والخبرة.'
+                                ].map((txt, idx) => `
+                                    <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-3">
+                                        <span class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-500 font-black text-xs flex items-center justify-center shrink-0">0${idx + 1}</span>
+                                        <span class="font-bold text-slate-800 dark:text-slate-200 text-sm sm:text-base">${txt}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-gradient-to-l from-amber-500 to-amber-400 text-slate-950 font-black text-center text-lg sm:text-xl shadow-lg">
+                            "التشبع لا يعني اختفاء الفرص، بل يعني أن التميّز أصبح أكثر أهمية."
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '07', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'الفجوة بين التعليم الأكاديمي والتطبيق المهني',
+                type: 'interactive', time: '5 دقائق',
+                note: 'تفاعل مع الطلاب باختبار توقعاتهم قبل كشف المقابل التطبيقي في بيئة العمل.',
+                html: () => {
+                    const rows = [
+                        { edu: 'معرفة مفهوم التسويق', work: 'بناء نشاط تسويقي يحقق هدفاً', icon: 'fa-bullhorn' },
+                        { edu: 'دراسة سلوك المستهلك', work: 'فهم سلوك عميل حقيقي', icon: 'fa-users-viewfinder' },
+                        { edu: 'معرفة أدوات التحليل', work: 'تحليل بيانات واتخاذ قرار', icon: 'fa-chart-pie' },
+                        { edu: 'معرفة مفهوم المبيعات', work: 'إدارة فرصة بيع وإتمام صفقة', icon: 'fa-handshake' },
+                        { edu: 'معرفة أدوات التقنية', work: 'توظيف التقنية لتحسين العمل', icon: 'fa-microchip' }
+                    ];
+                    return `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500">الشريحة 07 | اختبار تفاعلي</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">الفجوة بين التعليم الأكاديمي والتطبيق المهني</h2>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">هناك فرق بين أن تعرف المفهوم، وأن تستطيع استخدامه في بيئة العمل (اضغط على أي صف للتبديل).</p>
+                            </div>
+                            <button onclick="toggleAllBridge()" class="px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-extrabold text-xs shadow hover:bg-emerald-400 transition">
+                                إظهار / إخفاء الكل
+                            </button>
+                        </div>
+
+                        <div class="space-y-3">
+                            ${rows.map((r, i) => `
+                                <div onclick="toggleBridgeItem(${i})" class="cursor-pointer grid grid-cols-1 md:grid-cols-12 gap-3 items-center p-3.5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-amber-400 transition">
+                                    <div class="md:col-span-5 flex items-center gap-3">
+                                        <span class="w-9 h-9 rounded-xl bg-slate-200 dark:bg-white/10 text-amber-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid ${r.icon}"></i>
+                                        </span>
+                                        <div>
+                                            <span class="text-[10px] text-slate-400 block">في التعليم</span>
+                                            <span class="font-bold text-slate-900 dark:text-white">${r.edu}</span>
+                                        </div>
+                                    </div>
+                                    <div class="md:col-span-2 text-center">
+                                        <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-300 text-xs font-bold">
+                                            <i class="fa-solid fa-arrow-left"></i> في العمل
+                                        </span>
+                                    </div>
+                                    <div class="md:col-span-5">
+                                        <div id="bridge-ans-${i}" class="p-3 rounded-xl bg-emerald-600 text-white font-extrabold text-sm sm:text-base transition-all">
+                                            <i class="fa-solid fa-check-circle ml-1.5 text-amber-300"></i> ${r.work}
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="text-center font-bold text-slate-700 dark:text-slate-300 pt-2">
+                            "المعرفة أساس مهم، لكن الممارسة هي التي تكشف قدرتنا على توظيفها."
+                        </div>
+                    </div>
+                `;
+                }
+            },
+            {
+                num: '08', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'ماذا ينتظر سوق العمل من الموظف؟',
+                type: 'conceptual', time: '4 دقائق',
+                note: 'أكد على القاعدة الختامية: القيمة المهنية تُقاس بالأثر لا بعدد المهام.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 08 | جدارات السوق</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ماذا ينتظر سوق العمل من الموظف؟</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">المؤسسات تحتاج إلى شخص يستطيع أن:</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                            ${[
+                                { t: 'يفهم طبيعة النشاط التجاري وأهدافه.', ic: 'fa-compass' },
+                                { t: 'يحلل المعلومات ويكتشف المشكلات.', ic: 'fa-magnifying-glass-chart' },
+                                { t: 'يربط تخصصه باحتياجات المؤسسة.', ic: 'fa-link' },
+                                { t: 'ينظم العمل وينفذ الإجراءات.', ic: 'fa-list-check' },
+                                { t: 'يتواصل ويتعاون مع بقية الفرق.', ic: 'fa-people-group' },
+                                { t: 'يستخدم الأدوات والتقنيات المناسبة.', ic: 'fa-laptop-code' },
+                                { t: 'يقيس النتائج ويخطط للتحسينات على صعيد العمليات وعلى صعيد رحلة العميل.', ic: 'fa-gauge-high', wide: true }
+                            ].map(item => `
+                                <div class="${item.wide ? 'md:col-span-2 bg-emerald-500/15 border-emerald-500/30' : 'bg-slate-100/80 dark:bg-white/5 border-slate-200 dark:border-white/10'} p-4 rounded-2xl border flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid ${item.ic}"></i>
+                                    </div>
+                                    <span class="font-extrabold text-slate-900 dark:text-white text-base">${item.t}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-royal-900 border border-amber-500/40 text-white text-center font-black text-lg sm:text-xl">
+                            "القيمة المهنية لا تتحدد بعدد المهام التي تنجزها، بل <span class="text-amber-400">بأثر ما تنجزه</span>."
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '09', secIdx: 1, section: 'القسم الأول: المدخل وسوق العمل',
+                title: 'كيف تتحول المعرفة إلى قيمة مهنية؟',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'استعرض المراحل الخمس كسلسلة مترابطة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-8">
+                        <div class="text-center">
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 09 | مسار القيمة</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف تتحول المعرفة إلى قيمة مهنية؟</h2>
+                            <p class="text-slate-500 dark:text-slate-400 mt-1">مسار تحويل المعرفة إلى نتائج</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                            ${[
+                                { n: '01', t: 'المعرفة والتخصص', q: 'ما الذي أعرفه؟', ic: 'fa-book-open' },
+                                { n: '02', t: 'فهم المشكلة والسياق', q: 'ما الذي يحدث داخل المؤسسة؟', ic: 'fa-eye' },
+                                { n: '03', t: 'التحليل واكتشاف الفجوة', q: 'ما الذي يجب تحسينه؟', ic: 'fa-magnifying-glass' },
+                                { n: '04', t: 'بناء الحل وتنفيذه', q: 'كيف نعالج المشكلة؟', ic: 'fa-gears' },
+                                { n: '05', t: 'تحقيق القيمة وقياس النتائج', q: 'ما الأثر الذي تحقق؟', ic: 'fa-trophy', last: true }
+                            ].map(s => `
+                                <div class="p-5 rounded-2xl ${s.last ? 'bg-gradient-to-b from-amber-500 to-amber-600 text-slate-950' : 'bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10'} flex flex-col justify-between gap-4">
+                                    <div>
+                                        <div class="flex items-center justify-between mb-3">
+                                            <span class="text-xs font-black px-2.5 py-1 rounded-lg ${s.last ? 'bg-slate-950 text-amber-400' : 'bg-amber-500/20 text-amber-500'}">${s.n}</span>
+                                            <i class="fa-solid ${s.ic} text-lg"></i>
+                                        </div>
+                                        <h3 class="text-lg font-black leading-snug">${s.t}</h3>
+                                    </div>
+                                    <p class="text-xs font-bold pt-3 border-t ${s.last ? 'border-slate-950/20 text-slate-900' : 'border-slate-200 dark:border-white/10 text-emerald-600 dark:text-emerald-400'}">${s.q}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+
+            // --- القسم الثاني: عقلية الأعمال ---
+            {
+                num: '10', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'المحور الثاني: افهم الشركة قبل أن تعمل فيها',
+                type: 'conceptual', time: '2 دقيقة',
+                note: 'الانتقال إلى القسم الثاني: عقلية الأعمال.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-royal-900 via-slate-900 to-royal-950 border border-emerald-500/30 p-10 sm:p-16 text-center text-white shadow-2xl">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <span class="px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-extrabold">القسم الثاني | المحور الثاني</span>
+                            <h2 class="text-3xl sm:text-5xl font-black">افهم الشركة قبل أن تعمل فيها</h2>
+                            <div class="w-24 h-1 bg-amber-400 mx-auto rounded-full"></div>
+                            <p class="text-xl sm:text-2xl text-slate-300 leading-relaxed">
+                                لكي تكون موظفاً مؤثراً، لا يكفي أن تفهم وظيفتك؛ بل تحتاج إلى فهم النشاط التجاري الذي تعمل داخله.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '11', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'ما عقلية الأعمال؟ (Business Mindset)',
+                type: 'conceptual', time: '4 دقائق',
+                note: 'ركز على الأسئلة الأربعة لعقلية الأعمال.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 11 | Business Mindset</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ما عقلية الأعمال؟</h2>
+                            <p class="text-base sm:text-lg text-slate-700 dark:text-slate-200 mt-3 p-5 rounded-2xl bg-slate-100 dark:bg-white/5 border-r-4 border-emerald-400 leading-relaxed">
+                                <strong>عقلية الأعمال (Business Mindset)</strong> هي القدرة على فهم كيفية عمل النشاط التجاري، وكيف يقدم القيمة للعملاء، وكيف يحقق الإيرادات، وما الموارد والعمليات والتحديات التي تؤثر في أدائه.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            ${[
+                                { n: '1', q: 'من العملاء الذين نخدمهم؟', ic: 'fa-users' },
+                                { n: '2', q: 'ما القيمة التي نقدمها لهم؟', ic: 'fa-gift' },
+                                { n: '3', q: 'كيف نصل إليهم ونقدم لهم خدماتنا؟', ic: 'fa-truck-fast' },
+                                { n: '4', q: 'كيف نحقق الإيرادات ونحافظ على استمرارية النشاط؟', ic: 'fa-coins' }
+                            ].map(item => `
+                                <div class="p-5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-4">
+                                    <span class="w-11 h-11 rounded-xl bg-amber-500 text-slate-950 font-black text-lg flex items-center justify-center shrink-0">${item.n}</span>
+                                    <span class="text-lg font-extrabold text-slate-900 dark:text-white">${item.q}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '12', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'الفرق بين عقلية تنفيذ المهام وعقلية الأعمال',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'اشرح الانتقال الاستراتيجي من نقطة إلى نقطة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-8">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 12 | التفكير الاستراتيجي</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">الفرق بين عقلية تنفيذ المهام وعقلية الأعمال</h2>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-gradient-to-l from-royal-900 to-royal-800 border border-amber-500/30 text-white text-center space-y-4">
+                            <p class="text-xl sm:text-2xl font-extrabold leading-relaxed">
+                                عقلية الأعمال تنقل الموظف من <span class="text-slate-400 line-through">التركيز على الأنشطة</span> إلى <span class="text-amber-400">التركيز على النتيجة</span>، وتحتاج للتفكير الاستراتيجي:
+                            </p>
+                            <div class="inline-block px-6 py-3 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-black text-lg sm:text-xl">
+                                "أحتاج أوصل من نقطة إلى نقطة.. إيش بحتاج هنا من موارد وأنشطة للوصول؟"
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center">
+                            <div class="p-5 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+                                <span class="text-xs font-bold text-slate-400">نقطة الانطلاق</span>
+                                <h3 class="text-xl font-black text-slate-900 dark:text-white mt-1">الوضع الراهن</h3>
+                            </div>
+                            <div class="p-5 rounded-2xl bg-amber-500/15 border border-amber-500/30">
+                                <i class="fa-solid fa-route text-2xl text-amber-500 mb-1"></i>
+                                <h3 class="text-lg font-black text-amber-600 dark:text-amber-300">الموارد + الأنشطة اللازمة</h3>
+                            </div>
+                            <div class="p-5 rounded-2xl bg-emerald-500/15 border border-emerald-500/30">
+                                <span class="text-xs font-bold text-emerald-500">الهدف</span>
+                                <h3 class="text-xl font-black text-emerald-700 dark:text-emerald-300 mt-1">النتيجة المستهدفة</h3>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '13', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'كيف نفهم نموذج العمل التجاري؟',
+                type: 'conceptual', time: '4 دقائق',
+                note: 'عرّف نموذج العمل التجاري قبل الانتقال للمخطط التفاعلي.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 13 | Business Model</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف نفهم نموذج العمل التجاري؟</h2>
+                            <p class="text-base sm:text-lg text-slate-700 dark:text-slate-200 mt-3 p-4 rounded-2xl bg-slate-100 dark:bg-white/5 border-r-4 border-amber-400">
+                                <strong>نموذج العمل التجاري (Business Model)</strong> هو الطريقة التي تنشئ بها المؤسسة القيمة، وتقدمها للعملاء، وتحصل مقابلها على الإيرادات.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                            ${[
+                                'شرائح العملاء.',
+                                'القيمة المقدمة.',
+                                'المنتجات والخدمات.',
+                                'قنوات الوصول إلى العملاء.',
+                                'طبيعة العلاقة مع العملاء.',
+                                'مصادر الإيرادات.',
+                                'الموارد والأنشطة الرئيسية.',
+                                'التكاليف والشركاء.'
+                            ].map((txt, idx) => `
+                                <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-500 font-black text-xs flex items-center justify-center shrink-0">0${idx + 1}</span>
+                                    <span class="font-bold text-slate-800 dark:text-slate-100 text-sm sm:text-base">${txt}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '14', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'مكونات نموذج العمل (مخطط تفاعلي)',
+                type: 'interactive', time: '8 دقائق',
+                note: 'أعطِ هذه الشريحة مساحة كافية في الشرح والنقاش؛ اضغط على كل مكوّن لعرض سؤاله الأساسي ومثال عملي.',
+                html: () => {
+                    const blocks = [
+                        { t: 'شرائح العملاء', q: 'من نخدم؟', ex: 'المتاجر الإلكترونية والشركات التي تبيع عبر منصات التواصل الاجتماعي.', ic: 'fa-users' },
+                        { t: 'القيمة المقدمة', q: 'ما المشكلة التي نحلها؟', ex: 'منع ضياع المحادثات وربط المبيعات بالمخزون لزيادة الأرباح.', ic: 'fa-gift' },
+                        { t: 'القنوات', q: 'كيف نصل إلى العملاء؟', ex: 'الإعلانات الممولة، التسويق بالمحتوى، والندوات الأكاديمية.', ic: 'fa-bullhorn' },
+                        { t: 'العلاقة مع العملاء', q: 'كيف نكتسب العميل ونحافظ عليه؟', ex: 'دعم فني مباشر، تدريب مستمر، ومتابعة دورية.', ic: 'fa-headset' },
+                        { t: 'مصادر الإيرادات', q: 'مقابل ماذا يدفع العميل؟', ex: 'اشتراكات شهرية/سنوية وباقات تدريب وتطوير.', ic: 'fa-coins' },
+                        { t: 'الموارد الرئيسية', q: 'ماذا نحتاج لتشغيل النشاط؟', ex: 'المنصة التقنية، فريق التطوير، والمدربون.', ic: 'fa-server' },
+                        { t: 'الأنشطة الرئيسية', q: 'ما الأعمال التي يجب تنفيذها؟', ex: 'التطوير التقني، التسويق، والتأهيل البيعي.', ic: 'fa-list-check' },
+                        { t: 'الشركاء الرئيسيون', q: 'من يساعدنا على تقديم القيمة؟', ex: 'شركات الشحن، بوابات الدفع، والجامعات.', ic: 'fa-handshake' },
+                        { t: 'هيكل التكاليف', q: 'ما الموارد والأنشطة التي تكلفنا؟', ex: 'السيرفرات، الرواتب، وميزانية الإعلانات.', ic: 'fa-file-invoice-dollar' }
+                    ];
+                    return `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-8 space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500">الشريحة 14 | مخطط تفاعلي</span>
+                                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">مكونات نموذج العمل</h2>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1.5 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-300">
+                                <i class="fa-solid fa-hand-pointer ml-1"></i> اختر مكوّناً لعرض تفاصيله
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                ${blocks.map((b, i) => `
+                                    <button onclick="pickBmc(${i})" id="bmc-tile-${i}" class="bmc-tile text-right p-4 rounded-2xl border transition-all ${i === 0 ? "bg-amber-500 text-slate-950 border-amber-400 font-black shadow-lg" : "bg-slate-100/80 dark:bg-white/5 text-slate-800 dark:text-white border-slate-200 dark:border-white/10 hover:border-amber-400"}">
+                                        <div class="flex items-center justify-between mb-1.5">
+                                            <span class="text-[11px] opacity-75">0${i + 1}</span>
+                                            <i class="fa-solid ${b.ic}"></i>
+                                        </div>
+                                        <div class="text-base font-extrabold">${b.t}</div>
+                                        <div class="text-xs mt-1 opacity-80">${b.q}</div>
+                                    </button>
+                                `).join('')}
+                            </div>
+
+                            <div class="lg:col-span-4 rounded-2xl bg-royal-950 border border-amber-500/30 text-white p-6 flex flex-col justify-between space-y-4">
+                                <div class="space-y-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl">
+                                        <i id="bmcIcon" class="fa-solid fa-users"></i>
+                                    </div>
+                                    <h3 id="bmcTitle" class="text-2xl font-black text-amber-400">شرائح العملاء</h3>
+                                    <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                                        <span class="text-xs text-emerald-400 font-bold block">السؤال الأساسي:</span>
+                                        <p id="bmcQ" class="text-lg font-extrabold mt-0.5">من نخدم؟</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-slate-400 font-bold block">تطبيق عملي:</span>
+                                        <p id="bmcEx" class="text-sm text-slate-200 mt-1 leading-relaxed">المتاجر الإلكترونية والشركات التي تبيع عبر منصات التواصل الاجتماعي.</p>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-slate-400 pt-3 border-t border-white/10">
+                                    فهم هذا النموذج يساعد الموظف على إدراك كيف يرتبط عمله ببقية وظائف الشركة.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                }
+            },
+            {
+                num: '16', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'كيف تحقق الشركات إيراداتها؟',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'ميّز بين الإيرادات والأرباح.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 16 | مصادر الدخل</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف تحقق الشركات إيراداتها؟</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">تختلف مصادر الإيرادات باختلاف طبيعة النشاط ونموذج العمل:</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${[
+                                { t: 'بيع المنتجات', d: 'بيع السلع المادية أو الرقمية.', ic: 'fa-bag-shopping' },
+                                { t: 'الخدمات', d: 'تقديم خدمة مقابل رسوم.', ic: 'fa-bell-concierge' },
+                                { t: 'الاشتراكات', d: 'تحصيل مبالغ دورية مقابل استخدام خدمة.', ic: 'fa-rotate' },
+                                { t: 'العمولات', d: 'الحصول على نسبة من عمليات البيع أو الوساطة.', ic: 'fa-percent' },
+                                { t: 'الباقات', d: 'تقديم مجموعة من المنتجات أو الخدمات بسعر محدد.', ic: 'fa-boxes-stacked' },
+                                { t: 'عقود الشركات', d: 'اتفاقيات توريد أو تشغيل أو تدريب بين المؤسسات.', ic: 'fa-file-signature' }
+                            ].map(item => `
+                                <div class="p-5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-2">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-500 flex items-center justify-center">
+                                        <i class="fa-solid ${item.ic}"></i>
+                                    </div>
+                                    <h3 class="text-lg font-black text-slate-900 dark:text-white">${item.t}</h3>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">${item.d}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-700 dark:text-amber-300 font-extrabold text-center">
+                            ملاحظة: الإيرادات ليست هي الأرباح؛ فالربح يتأثر بالتكاليف والمصروفات وكفاءة التشغيل.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '18', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'تحليل الفجوات واكتشاف المشكلات',
+                type: 'conceptual', time: '4 دقائق',
+                note: 'لا تقفز إلى الحل قبل تشخيص الأسباب.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-8">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 18 | Gap Analysis</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">تحليل الفجوات واكتشاف المشكلات</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center">
+                            <div class="p-6 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+                                <h3 class="text-xl font-black text-slate-900 dark:text-white">الوضع الحالي</h3>
+                                <p class="text-xs text-slate-400 mt-1">ما يحدث فعلياً الآن</p>
+                            </div>
+                            <div class="p-6 rounded-2xl bg-gradient-to-l from-amber-500 to-rose-500 text-slate-950 font-black shadow-lg">
+                                <h3 class="text-2xl">الفجوة (Gap)</h3>
+                                <p class="text-xs mt-1">الفرق بين الوضع الحالي والمستهدف</p>
+                            </div>
+                            <div class="p-6 rounded-2xl bg-emerald-500/15 border border-emerald-500/30">
+                                <h3 class="text-xl font-black text-emerald-600 dark:text-emerald-300">الوضع المستهدف</h3>
+                                <p class="text-xs text-emerald-500 mt-1">النتيجة المرجوة</p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-royal-900 border border-amber-500/40 text-center text-white space-y-2">
+                            <p class="text-slate-300">لكن تحديد الفجوة لا يكفي؛ يجب البحث عن أسبابها:</p>
+                            <p class="text-xl sm:text-2xl font-black text-amber-400">"لا تقفز إلى الحل قبل أن تفهم المشكلة وأسبابها."</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '19', secIdx: 2, section: 'القسم الثاني: عقلية الأعمال',
+                title: 'منهجية تحليل المشكلة',
+                type: 'explanatory', time: '5 دقائق',
+                note: 'الخطوات الست المنهجية لمعالجة أي تحدٍ تجاري.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 19 | خطوات التشخيص</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">منهجية تحليل المشكلة</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${[
+                                { n: '01', t: 'فهم الوضع الحالي', q: 'ما الذي يحدث الآن؟' },
+                                { n: '02', t: 'تحديد الوضع المستهدف', q: 'ما النتيجة التي نريد الوصول إليها؟' },
+                                { n: '03', t: 'تحديد الفجوة', q: 'ما الفرق بين الوضعين؟' },
+                                { n: '04', t: 'تحليل الأسباب', q: 'لماذا تحدث المشكلة؟' },
+                                { n: '05', t: 'بناء الحل', q: 'ما الإجراء المناسب لمعالجتها؟' },
+                                { n: '06', t: 'التنفيذ والقياس', q: 'هل نجح الحل؟ وما مقدار التحسن؟' }
+                            ].map(s => `
+                                <div class="p-5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-2">
+                                    <span class="px-3 py-1 rounded-lg bg-amber-500 text-slate-950 font-black text-xs">${s.n}</span>
+                                    <h3 class="text-lg font-black text-slate-900 dark:text-white pt-1">${s.t}</h3>
+                                    <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400">${s.q}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+
+            // --- القسم الثالث: كيف تنشأ الشركات وتعمل؟ ---
+            {
+                num: '20', secIdx: 3, section: 'القسم الثالث: كيف تنشأ الشركات وتعمل؟',
+                title: 'المحور الثالث: من اكتشاف الفرصة إلى تشغيل النشاط',
+                type: 'conceptual', time: '2 دقيقة',
+                note: 'التأسيس يبدأ بالفرصة والسوق لا بالإعلان العشوائي.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-emerald-950 via-royal-900 to-royal-950 border border-emerald-500/30 p-10 sm:p-16 text-center text-white shadow-2xl">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <span class="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-sm font-extrabold">القسم الثالث | المحور الثالث</span>
+                            <h2 class="text-3xl sm:text-5xl font-black">من اكتشاف الفرصة إلى تشغيل النشاط</h2>
+                            <div class="w-24 h-1 bg-emerald-400 mx-auto rounded-full"></div>
+                            <p class="text-xl sm:text-2xl text-slate-300 leading-relaxed">
+                                تأسيس النشاط التجاري لا يبدأ بالإعلان أو البيع مباشرة، بل بفهم الفرصة والسوق والعملاء، ثم تصميم العرض المناسب وبناء طريقة العمل.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '21', secIdx: 3, section: 'القسم الثالث: كيف تنشأ الشركات وتعمل؟',
+                title: 'مسار تأسيس الشركات (من أين تبدأ الشركة؟)',
+                type: 'explanatory', time: '6 دقائق',
+                note: 'اشرح المخطط الهيكلي لمسار تأسيس الشركات بدءاً من التسويق وأبحاث السوق وتجزئة السوق والمزيج التسويقي، مروراً بالتشغيل والأدلة الإجرائية، وصولاً إلى المبيعات ومراحلها الأربع.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-5 sm:p-8 space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-white/10 pb-4">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500">الشريحة 21 | المخطط الهيكلي</span>
+                                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-0.5">مسار تأسيس الشركات</h2>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-300">
+                                من أين تبدأ الشركة؟
+                            </span>
+                        </div>
+
+                        <!-- المخطط البصري المطابق للصورة بتصميم تفاعلي متجاوب -->
+                        <div class="overflow-x-auto pb-2">
+                            <div class="min-w-[820px] p-4 sm:p-6 rounded-3xl bg-[#131923] border border-white/10 text-slate-900 shadow-inner">
+                                
+                                <!-- العنوان والخط الأفقي العلوي -->
+                                <div class="text-center mb-4">
+                                    <h3 class="text-2xl sm:text-3xl font-black text-white tracking-wide">مسار تأسيس الشركات</h3>
+                                </div>
+
+                                <div class="relative pt-2 pb-1">
+                                    <!-- الخط الأفقي الرئيسي -->
+                                    <div class="h-1 bg-white rounded-full mx-12 relative flex items-center justify-end">
+                                        <!-- النقطة الدائرية في نهاية المسار يساراً -->
+                                        <div class="w-4 h-4 rounded-full bg-white shadow-md -ml-1"></div>
+                                    </div>
+                                </div>
+
+                                <!-- الأعمدة الثلاثة الرئيسية (يمين: التسويق | وسط: التشغيل | يسار: المبيعات) -->
+                                <div class="grid grid-cols-12 gap-4 items-start">
+                                    
+                                    <!-- 1. عمود التسويق (يمين - 6 أعمدة) -->
+                                    <div class="col-span-6 flex flex-col items-start">
+                                        <!-- سهم نازل من الخط العلوي -->
+                                        <div class="w-36 flex flex-col items-center">
+                                            <div class="w-0.5 h-6 bg-white/80"></div>
+                                            <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                            <div class="w-full py-2.5 px-3 rounded-xl bg-white text-slate-900 font-black text-center text-base shadow-md">
+                                                التسويق
+                                            </div>
+                                            <div class="w-0.5 h-4 bg-white/80"></div>
+                                            <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                            <div class="w-full py-2 px-3 rounded-xl bg-white text-slate-900 font-extrabold text-center text-sm leading-tight shadow-md">
+                                                أبحاث<br>السوق
+                                            </div>
+                                            <div class="w-0.5 h-4 bg-white/80"></div>
+                                            <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                        </div>
+
+                                        <!-- صف دراسات السوق الأربعة -->
+                                        <div class="grid grid-cols-4 gap-2 w-full">
+                                            ${['دراسة<br>السوق', 'دراسة<br>العملاء', 'دراسة<br>المنتجات', 'دراسة<br>المنافسين'].map(box => `
+                                                <div class="py-2 px-1.5 rounded-xl bg-white border-2 border-emerald-400 text-slate-900 font-extrabold text-center text-xs sm:text-sm leading-tight shadow hover:scale-105 transition">
+                                                    ${box}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+
+                                        <!-- سهم نازل من دراسة السوق -->
+                                        <div class="w-1/4 flex flex-col items-center">
+                                            <div class="w-0.5 h-4 bg-white/80"></div>
+                                            <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                        </div>
+
+                                        <!-- صف التجزئة والاستهداف والتموضع والمزيج التسويقي -->
+                                        <div class="grid grid-cols-4 gap-2 w-full">
+                                            ${[
+                                                { t: 'تجزئة<br>السوق', b: 'border-emerald-400' },
+                                                { t: 'الفئة<br>المستهدفة', b: 'border-emerald-400' },
+                                                { t: 'تموضع<br>العلامة', b: 'border-emerald-400' },
+                                                { t: 'المزيج<br>التسويقي', b: 'border-amber-400' }
+                                            ].map(box => `
+                                                <div class="py-2 px-1.5 rounded-xl bg-white border-2 ${box.b} text-slate-900 font-extrabold text-center text-xs sm:text-sm leading-tight shadow hover:scale-105 transition">
+                                                    ${box.t}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+
+                                        <!-- وصلة نازلة من المزيج التسويقي (العمود الرابع يساراً) -->
+                                        <div class="w-full flex justify-end pl-[11%]">
+                                            <div class="w-0.5 h-4 bg-white/80"></div>
+                                        </div>
+
+                                        <!-- عناصر المزيج التسويقي الأربعة (4Ps) ممتدة لليسار -->
+                                        <div class="w-[115%] -ml-[15%] grid grid-cols-4 gap-2">
+                                            ${['المنتج', 'المكان', 'السعر', 'الترويج'].map(p => `
+                                                <div class="py-2.5 px-2 rounded-xl bg-white border-2 border-emerald-400 text-slate-900 font-black text-center text-xs sm:text-sm shadow hover:bg-emerald-50 transition">
+                                                    ${p}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+
+                                    <!-- 2. عمود التشغيل (وسط - 3 أعمدة) -->
+                                    <div class="col-span-3 flex flex-col items-center">
+                                        <div class="w-36 flex flex-col items-center">
+                                            <div class="w-0.5 h-6 bg-white/80"></div>
+                                            <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                            <div class="w-full py-2.5 px-3 rounded-xl bg-white text-slate-900 font-black text-center text-base shadow-md">
+                                                التشغيل
+                                            </div>
+                                            <div class="w-0.5 h-5 bg-white/80"></div>
+                                            <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                            <div class="w-full py-2.5 px-3 rounded-xl bg-white text-slate-900 font-extrabold text-center text-sm leading-tight shadow-md">
+                                                الأدلة<br>الإجرائية
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 3. عمود المبيعات (يسار - 3 أعمدة) -->
+                                    <div class="col-span-3 flex flex-col items-end">
+                                        <div class="w-36 flex flex-col items-center">
+                                            <div class="w-0.5 h-6 bg-white/80"></div>
+                                            <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                            <div class="w-full py-2.5 px-3 rounded-xl bg-white text-slate-900 font-black text-center text-base shadow-md">
+                                                المبيعات
+                                            </div>
+                                            ${['تخطيط', 'تنفيذ', 'رقابة'].map(step => `
+                                                <div class="w-0.5 h-4 bg-white/80"></div>
+                                                <i class="fa-solid fa-caret-down text-white text-xs -mt-1.5 mb-1"></i>
+                                                <div class="w-full py-2.5 px-3 rounded-xl bg-white text-slate-900 font-extrabold text-center text-sm shadow-md">
+                                                    ${step}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+
+            // --- القسم الرابع: كيف تعمل وظائف الشركة معاً؟ ---
+            {
+                num: '27', secIdx: 4, section: 'القسم الرابع: كيف تعمل وظائف الشركة معاً؟',
+                title: 'المحور الرابع: التسويق والمبيعات والتشغيل',
+                type: 'conceptual', time: '2 دقيقة',
+                note: 'الشركات منظومة متكاملة لا جزر منعزلة.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-royal-900 via-slate-900 to-emerald-950 border border-amber-500/30 p-10 sm:p-16 text-center text-white shadow-2xl">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <span class="px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-extrabold">القسم الرابع | المحور الرابع</span>
+                            <h2 class="text-3xl sm:text-5xl font-black">التسويق والمبيعات والتشغيل</h2>
+                            <div class="w-24 h-1 bg-amber-400 mx-auto rounded-full"></div>
+                            <p class="text-xl sm:text-2xl text-slate-300 leading-relaxed">
+                                الشركات لا تعمل من خلال وظائف منفصلة، بل من خلال منظومة مترابطة تتكامل لتحقيق هدف تجاري مشترك.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '28', secIdx: 4, section: 'القسم الرابع: كيف تعمل وظائف الشركة معاً؟',
+                title: 'الوظائف التجارية الرئيسية والفرق بين البيع والتسويق',
+                type: 'interactive', time: '7 دقائق',
+                note: 'استخدم أزرار التبديل لعرض الوظائف الثلاث ثم الفروق الخمسة بين البيع والتسويق.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-8 space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500">الشريحة 28 | الوظائف التجارية</span>
+                                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">الوظائف التجارية الرئيسية</h2>
+                            </div>
+                            <div class="flex gap-2 bg-slate-200/70 dark:bg-white/5 p-1 rounded-xl">
+                                <button onclick="setS28View('main')" id="btn28-main" class="px-4 py-2 rounded-lg text-xs font-extrabold bg-amber-500 text-slate-950">الوظائف الثلاث</button>
+                                <button onclick="setS28View('comp')" id="btn28-comp" class="px-4 py-2 rounded-lg text-xs font-extrabold text-slate-600 dark:text-slate-300">الفرق بين البيع والتسويق</button>
+                            </div>
+                        </div>
+
+                        <div id="view28-main" class="space-y-5">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+                                    <span class="text-xs font-black text-emerald-500">Marketing</span>
+                                    <h3 class="text-xl font-black text-slate-900 dark:text-white">التسويق</h3>
+                                    <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">فهم السوق، وتحديد العملاء، وبناء القيمة، والوصول إلى الجمهور، وتوليد الاهتمام والفرص.</p>
+                                </div>
+                                <div class="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+                                    <span class="text-xs font-black text-amber-500">Sales</span>
+                                    <h3 class="text-xl font-black text-slate-900 dark:text-white">المبيعات</h3>
+                                    <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">استقبال الفرص، والتواصل مع العملاء، وتأهيلهم، وفهم احتياجاتهم، وتقديم الحلول، ومعالجة الاعتراضات وإتمام البيع.</p>
+                                </div>
+                                <div class="p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 space-y-2">
+                                    <span class="text-xs font-black text-cyan-400">Operations</span>
+                                    <h3 class="text-xl font-black text-slate-900 dark:text-white">التشغيل</h3>
+                                    <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">إدارة الموارد والمخزون والطلبات والتجهيز والتسليم والجودة والخدمات.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-royal-900 border border-rose-500/30 text-white flex items-center gap-3">
+                                <i class="fa-solid fa-heart-pulse text-rose-400 text-xl"></i>
+                                <p class="text-sm sm:text-base">
+                                    <strong>أهمية المبيعات وعلاقتها بالتسويق:</strong> المبيعات هي شريان حياة الأنشطة التجارية، وبدونها لا تستطيع الشركات أن تحقق أرباحها ولا البقاء في الأسواق لفترة طويلة.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="view28-comp" class="hidden space-y-3">
+                            <h3 class="text-lg font-black text-amber-500">ما الفرق بين البيع والتسويق؟</h3>
+                            ${[
+                                'البيع يبدأ بعد الإنتاج ويركز على المنتجات الفعلية مستخدماً بعض أساليب البيع والترويج.',
+                                'التسويق يبدأ قبل الإنتاج ويركز على حاجات الناس مستخدماً عناصر المزيج التسويقي.',
+                                'يشترك البيع والتسويق في تحقيق الأرباح إلا أنهما يختلفان في الآلية.',
+                                'البيع يهدف إلى تحقيق الأهداف من خلال زيادة حجم المبيعات.',
+                                'التسويق يهدف إلى تحقيق الأهداف من خلال رضاء المستهلك.'
+                            ].map((p, idx) => `
+                                <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">${idx + 1}</span>
+                                    <span class="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-100">${p}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '29', secIdx: 4, section: 'القسم الرابع: كيف تعمل وظائف الشركة معاً؟',
+                title: 'كيف تتكامل الوظائف التجارية؟ (مثال متجر عطور)',
+                type: 'explanatory', time: '5 دقائق',
+                note: 'تتبع مثال متجر العطور من الإعلان وحتى تكرار الشراء.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 29 | مثال تطبيقي</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف تتكامل الوظائف التجارية؟</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">مثال: <strong>متجر عطور يطلق حملة إعلانية</strong></p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            ${[
+                                { st: 'التسويق', desc: 'إطلاق الحملة وجذب العملاء المحتملين', ic: 'fa-bullhorn' },
+                                { st: 'المبيعات', desc: 'استقبال الاستفسارات وفهم الاحتياج وإتمام البيع', ic: 'fa-comments-dollar' },
+                                { st: 'التشغيل', desc: 'التحقق من المخزون وتجهيز الطلب والتوصيل', ic: 'fa-box-open' },
+                                { st: 'تجربة العميل والنتائج', desc: 'التسليم والمتابعة والقياس وتكرار الشراء', ic: 'fa-face-smile-beam' }
+                            ].map((item, idx) => `
+                                <div class="p-5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-black text-amber-500">0${idx + 1}</span>
+                                        <i class="fa-solid ${item.ic} text-emerald-400 text-lg"></i>
+                                    </div>
+                                    <h3 class="text-xl font-black text-slate-900 dark:text-white">${item.st}</h3>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">${item.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '30', secIdx: 4, section: 'القسم الرابع: كيف تعمل وظائف الشركة معاً؟',
+                title: 'رحلة الشراء ورحلة العميل',
+                type: 'explanatory', time: '5 دقائق',
+                note: 'قارن بين رحلة الشراء ورحلة العميل الشاملة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 30 | مسار العميل</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">رحلة الشراء ورحلة العميل</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-3">
+                                <h3 class="text-xl font-black text-amber-500">رحلة الشراء</h3>
+                                <p class="text-xs text-slate-400">تركز على انتقال العميل من إدراك الحاجة إلى اتخاذ قرار الشراء:</p>
+                                <div class="space-y-2 pt-2">
+                                    ${['إدراك الاحتياج','تحديد المنتج','البحث عن المنتج','الحصول على العرض','مقارنة العروض','الشراء','تقييم التجربة'].map((s, i) => `
+                                        <div class="p-2.5 rounded-xl bg-white dark:bg-royal-950/60 border border-slate-200 dark:border-white/10 flex items-center gap-3 text-sm font-bold">
+                                            <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 text-xs font-black flex items-center justify-center">${i + 1}</span>
+                                            <span>${s}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
+                                <h3 class="text-xl font-black text-emerald-500">رحلة العميل</h3>
+                                <p class="text-xs text-emerald-400">أوسع من عملية الشراء، وتشمل جميع نقاط الاتصال والتجارب:</p>
+                                <div class="space-y-2 pt-2">
+                                    ${['اكتشاف العلامة التجارية.','التفاعل والتواصل.','الشراء.','استلام المنتج واستخدامه.','الدعم وخدمة ما بعد البيع.','الولاء وتكرار الشراء.'].map((s, i) => `
+                                        <div class="p-3 rounded-xl bg-white dark:bg-royal-950/60 border border-emerald-500/20 flex items-center gap-3 text-sm font-bold">
+                                            <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 text-xs font-black flex items-center justify-center">${i + 1}</span>
+                                            <span>${s}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-royal-900 border border-amber-500/30 text-white text-center font-extrabold">
+                            "البيع لا ينتهي عند إتمام الطلب؛ تجربة العميل بعد الشراء جزء من نجاح النشاط."
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '31', secIdx: 4, section: 'القسم الرابع: كيف تعمل وظائف الشركة معاً؟',
+                title: 'ماذا يحدث عندما تنمو الشركة؟',
+                type: 'conceptual', time: '4 دقائق',
+                note: 'اعرض التحديات الثمانية المصاحبة للنمو غير المنظم.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-rose-500">الشريحة 31 | تحديات التوسع</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ماذا يحدث عندما تنمو الشركة؟</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">مع زيادة العملاء والقنوات والموظفين، تظهر تحديات جديدة:</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                            ${[
+                                'تشتت بيانات العملاء بين المنصات والملفات.',
+                                'ضياع بعض المحادثات والفرص البيعية.',
+                                'تأخر الردود وضعف المتابعة.',
+                                'عدم وضوح مسؤوليات الموظفين.',
+                                'صعوبة قياس أداء المبيعات.',
+                                'عدم ربط الحملات بالطلبات والمبيعات.',
+                                'ضعف التنسيق بين المبيعات والتشغيل والمخزون.',
+                                'صعوبة معرفة المنتجات الأكثر طلباً.'
+                            ].map(p => `
+                                <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/25 flex items-start gap-3">
+                                    <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-1 shrink-0"></i>
+                                    <span class="text-sm font-bold text-slate-800 dark:text-slate-100">${p}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-emerald-500 text-slate-950 font-black text-center text-base sm:text-lg">
+                            كلما زاد حجم النشاط، زادت الحاجة إلى تنظيم العمليات وربط البيانات واستخدام الأنظمة المناسبة.
+                        </div>
+                    </div>
+                `
+            },
+
+            // --- القسم الخامس: عقلية العمليات ---
+            {
+                num: '32', secIdx: 5, section: 'القسم الخامس: عقلية العمليات',
+                title: 'المحور الخامس: لا تنجز المهمة فقط، بل افهم العملية',
+                type: 'conceptual', time: '2 دقيقة',
+                note: 'الانتقال إلى عقلية العمليات والإجراءات.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-royal-900 via-slate-900 to-amber-950 border border-amber-500/30 p-10 sm:p-16 text-center text-white shadow-2xl">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <span class="px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-sm font-extrabold">القسم الخامس | المحور الخامس</span>
+                            <h2 class="text-3xl sm:text-5xl font-black">لا تنجز المهمة فقط، بل افهم العملية</h2>
+                            <div class="w-24 h-1 bg-emerald-400 mx-auto rounded-full"></div>
+                            <p class="text-xl sm:text-2xl text-slate-300 leading-relaxed">
+                                المؤسسة لا تحتاج إلى تنفيذ المهام بصورة منفصلة فقط؛ بل تحتاج إلى إجراءات واضحة تضمن إنجاز العمل بكفاءة واستمرارية.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '33', secIdx: 5, section: 'القسم الخامس: عقلية العمليات',
+                title: 'ما الفرق بين المهمة والعملية؟',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'وضّح أن العملية تضمن الجودة المستمرة دون الاعتماد على اجتهاد فرد واحد.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-8">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 33 | Task vs Process</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ما الفرق بين المهمة والعملية؟</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 rounded-2xl bg-slate-100/80 dark:bg-white/5 border-t-4 border-amber-400 space-y-2">
+                                <span class="text-xs font-black text-amber-500">Task</span>
+                                <h3 class="text-2xl font-black text-slate-900 dark:text-white">المهمة</h3>
+                                <p class="text-lg text-slate-700 dark:text-slate-300">عمل محدد يقوم به الموظف.</p>
+                            </div>
+                            <div class="p-6 rounded-2xl bg-emerald-500/10 border-t-4 border-emerald-400 space-y-2">
+                                <span class="text-xs font-black text-emerald-500">Process</span>
+                                <h3 class="text-2xl font-black text-slate-900 dark:text-white">العملية</h3>
+                                <p class="text-lg text-slate-700 dark:text-slate-300">مجموعة من الخطوات المترابطة تبدأ بمدخلات وتنتهي بمخرجات تحقق هدفاً محدداً.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-royal-900 border border-emerald-500/30 text-white text-center font-extrabold text-lg">
+                            "الهدف هو ضمان ألا يعتمد نجاح الخدمة على اجتهاد الموظف وحده."
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '35', secIdx: 5, section: 'القسم الخامس: عقلية العمليات',
+                title: 'كيف نبني عملية عمل واضحة؟',
+                type: 'explanatory', time: '5 دقائق',
+                note: 'العناصر السبعة لبناء أي إجراء تشغيلي.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 35 | تصميم العمليات</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف نبني عملية عمل واضحة؟</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">كل عملية تحتاج إلى عناصر أساسية:</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                            ${[
+                                { c: 'الهدف', q: 'النتيجة المطلوب تحقيقها' },
+                                { c: 'المدخلات', q: 'البيانات والموارد اللازمة' },
+                                { c: 'الخطوات', q: 'تسلسل تنفيذ العمل' },
+                                { c: 'المسؤوليات', q: 'من ينفذ ومن يراجع؟' },
+                                { c: 'المخرجات', q: 'ما الذي يجب أن ينتج؟' },
+                                { c: 'مؤشرات الأداء', q: 'كيف نقيس النجاح؟' },
+                                { c: 'التحسين', q: 'كيف نطور العملية؟' }
+                            ].map((item, idx) => `
+                                <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-1.5">
+                                    <span class="text-xs font-black text-amber-500">0${idx + 1}</span>
+                                    <h3 class="text-lg font-black text-slate-900 dark:text-white">${item.c}</h3>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">${item.q}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '37', secIdx: 5, section: 'القسم الخامس: عقلية العمليات',
+                title: 'من المهمة إلى النظام والتحسين',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'لا يمكن أتمتة عملية غير منظمة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-8">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 37 | النضج المؤسسي</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">من المهمة إلى النظام والتحسين</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            ${[
+                                { t: 'المهمة', d: 'عمل محدد ينفذه شخص.' },
+                                { t: 'العملية', d: 'خطوات مترابطة لتحقيق هدف.' },
+                                { t: 'النظام', d: 'أدوار وبيانات وأدوات وإجراءات تنظم العمل.' },
+                                { t: 'التحسين والأتمتة', d: 'رفع الكفاءة وتقليل الأخطاء والجهد اليدوي.', top: true }
+                            ].map((m, i) => `
+                                <div class="p-5 rounded-2xl ${m.top ? 'bg-gradient-to-br from-amber-500 to-emerald-500 text-slate-950 font-black shadow-lg' : 'bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10'} space-y-2">
+                                    <span class="text-xs opacity-75">المرحلة 0${i + 1}</span>
+                                    <h3 class="text-xl font-black">${m.t}</h3>
+                                    <p class="text-sm font-semibold opacity-90">${m.d}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-600 dark:text-rose-300 font-black text-center text-lg">
+                            "لا يمكن أتمتة عملية غير مفهومة أو غير منظمة بصورة جيدة."
+                        </div>
+                    </div>
+                `
+            },
+
+            // --- القسم السادس: التكنولوجيا والتحول الرقمي ---
+            {
+                num: '38', secIdx: 6, section: 'القسم السادس: التكنولوجيا والتحول الرقمي',
+                title: 'المحور السادس: التكنولوجيا والتحول الرقمي',
+                type: 'conceptual', time: '2 دقيقة',
+                note: 'الانتقال إلى دور التكنولوجيا في إدارة الأعمال.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-royal-900 via-cyan-950 to-royal-950 border border-cyan-500/30 p-10 sm:p-16 text-center text-white shadow-2xl">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <span class="px-4 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 text-sm font-extrabold">القسم السادس | المحور السادس</span>
+                            <h2 class="text-3xl sm:text-5xl font-black">التكنولوجيا والتحول الرقمي</h2>
+                            <div class="w-24 h-1 bg-amber-400 mx-auto rounded-full"></div>
+                            <p class="text-xl sm:text-2xl text-slate-300 leading-relaxed">
+                                التكنولوجيا أصبحت جزءاً من طريقة إدارة الشركات وتسويق منتجاتها وبيعها وتشغيل أعمالها واتخاذ قراراتها.
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '39', secIdx: 6, section: 'القسم السادس: التكنولوجيا والتحول الرقمي',
+                title: 'كيف كانت الشركات تعمل تقليدياً؟',
+                type: 'conceptual', time: '3 دقائق',
+                note: 'ملامح العمل اليدوي والتقليدي.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-slate-400">الشريحة 39 | الإدارة التقليدية</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف كانت الشركات تعمل تقليدياً؟</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">اعتمدت كثير من المؤسسات على:</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${[
+                                'السجلات والدفاتر الورقية.',
+                                'الملفات المنفصلة لحفظ بيانات العملاء.',
+                                'المكالمات الهاتفية للتواصل.',
+                                'المتابعة اليدوية للطلبات.',
+                                'التقارير التي تجمع بصورة دورية.',
+                                'الإجراءات التي تعتمد على خبرة الموظف وذاكرته.'
+                            ].map((txt, i) => `
+                                <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-lg bg-slate-300 dark:bg-white/10 text-amber-500 font-black text-xs flex items-center justify-center shrink-0">0${i + 1}</span>
+                                    <span class="font-bold text-slate-800 dark:text-slate-200">${txt}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-center text-sm sm:text-base font-bold text-amber-700 dark:text-amber-300">
+                            هذه الأساليب قد تكون مناسبة للأنشطة الصغيرة، لكنها تصبح أكثر صعوبة مع نمو العمليات وزيادة حجم البيانات والعملاء.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '40', secIdx: 6, section: 'القسم السادس: التكنولوجيا والتحول الرقمي',
+                title: 'كيف غيرت التكنولوجيا بيئة الأعمال؟',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'ربط كافة وظائف الشركة عبر الأنظمة الرقمية.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 40 | المنظومة المترابطة</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف غيرت التكنولوجيا بيئة الأعمال؟</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">أصبح بالإمكان إدارة الوظائف المختلفة باستخدام الأنظمة الرقمية:</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                            ${[
+                                { k: 'التسويق', v: 'إدارة الحملات وتحليل الجمهور والنتائج.' },
+                                { k: 'المبيعات', v: 'إدارة العملاء والفرص والمحادثات.' },
+                                { k: 'خدمة العملاء', v: 'توحيد قنوات التواصل.' },
+                                { k: 'التشغيل', v: 'إدارة الطلبات والمخزون.' },
+                                { k: 'الإدارة', v: 'التقارير ولوحات مؤشرات الأداء.' },
+                                { k: 'الإجراءات', v: 'الأتمتة وسير العمل.' },
+                                { k: 'اتخاذ القرار', v: 'تحليل البيانات والذكاء الاصطناعي.', wide: true }
+                            ].map(item => `
+                                <div class="${item.wide ? 'sm:col-span-2 lg:col-span-3 bg-emerald-500/15 border-emerald-500/30' : 'bg-slate-100/80 dark:bg-white/5 border-slate-200 dark:border-white/10'} p-4 rounded-2xl border">
+                                    <h3 class="font-black text-amber-500 text-base">${item.k}</h3>
+                                    <p class="text-sm font-bold text-slate-800 dark:text-slate-200 mt-1">${item.v}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="text-center font-extrabold text-slate-700 dark:text-slate-300">
+                            "التكنولوجيا تساعد على الانتقال من العمل المتفرق إلى العمل المنظم والمترابط."
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '41', secIdx: 6, section: 'القسم السادس: التكنولوجيا والتحول الرقمي',
+                title: 'الرقمنة واستخدام التقنية والتحول الرقمي',
+                type: 'explanatory', time: '5 دقائق',
+                note: 'الفروق الجوهرية بين المستويات الثلاثة للتحول الرقمي.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 41 | مستويات النضج الرقمي</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">الرقمنة واستخدام التقنية والتحول الرقمي</h2>
+                            <p class="text-slate-600 dark:text-slate-300 mt-1">ثلاثة مفاهيم متقاربة لكنها ليست متطابقة:</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                            <div class="p-6 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex flex-col justify-between space-y-4">
+                                <div>
+                                    <span class="text-xs font-black text-slate-400">1. Digitization</span>
+                                    <h3 class="text-2xl font-black text-slate-900 dark:text-white mt-1">الرقمنة</h3>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">تحويل المعلومات من شكل ورقي أو تناظري إلى صيغة رقمية.</p>
+                                </div>
+                                <div class="p-3 rounded-xl bg-white dark:bg-royal-950/70 text-xs">
+                                    <strong class="text-amber-500 block">مثال:</strong> تحويل سجل العملاء الورقي إلى ملف إلكتروني.
+                                </div>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col justify-between space-y-4">
+                                <div>
+                                    <span class="text-xs font-black text-emerald-500">2. Digitalization</span>
+                                    <h3 class="text-2xl font-black text-slate-900 dark:text-white mt-1">استخدام التقنية لتحسين العمليات</h3>
+                                    <p class="text-sm text-slate-700 dark:text-slate-300 mt-2">استخدام الأدوات الرقمية لتحسين إجراء قائم.</p>
+                                </div>
+                                <div class="p-3 rounded-xl bg-white dark:bg-royal-950/70 text-xs">
+                                    <strong class="text-emerald-500 block">مثال:</strong> استقبال طلبات العملاء وتسجيلها إلكترونياً بدلاً من تسجيلها يدوياً.
+                                </div>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-gradient-to-br from-royal-900 to-royal-950 border border-amber-500/40 text-white flex flex-col justify-between space-y-4 shadow-xl">
+                                <div>
+                                    <span class="text-xs font-black text-amber-400">3. Digital Transformation</span>
+                                    <h3 class="text-2xl font-black mt-1">التحول الرقمي</h3>
+                                    <p class="text-sm text-slate-300 mt-2">تطوير طريقة عمل المؤسسة ونموذج تقديم القيمة والعمليات والقرارات اعتماداً على التكنولوجيا.</p>
+                                </div>
+                                <div class="p-3 rounded-xl bg-white/5 text-xs text-slate-200">
+                                    <strong class="text-amber-400 block">مثال:</strong> تحويل نشاط تقليدي إلى منظومة متكاملة لإدارة العملاء والمبيعات والطلبات والمخزون والتحليلات رقمياً.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '42', secIdx: 6, section: 'القسم السادس: التكنولوجيا والتحول الرقمي',
+                title: 'كيف تستخدم الشركات التكنولوجيا في إدارة المبيعات؟',
+                type: 'explanatory', time: '4 دقائق',
+                note: 'الأنظمة الثمانية لإدارة المبيعات الحديثة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-500">الشريحة 42 | أدوات المبيعات</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">كيف تستخدم الشركات التكنولوجيا في إدارة المبيعات؟</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                            ${[
+                                { k: 'إدارة العملاء CRM', d: 'حفظ تفاعلات العملاء وسجل تواصلهم.' },
+                                { k: 'إدارة المحادثات Inbox', d: 'توحيد قنوات التواصل وتنظيمها.' },
+                                { k: 'الحملات Campaigns', d: 'إدارة التواصل التسويقي مع العملاء.' },
+                                { k: 'الأتمتة Automation', d: 'تنفيذ الإجراءات المتكررة بصورة آلية.' },
+                                { k: 'الذكاء الاصطناعي AI', d: 'دعم الموظفين وتحليل المعلومات.' },
+                                { k: 'التكامل Integrations', d: 'ربط الأنظمة والمتاجر والخدمات.' },
+                                { k: 'نقطة البيع POS', d: 'إدارة المبيعات والفواتير والمخزون.' },
+                                { k: 'التقارير', d: 'متابعة الأداء وتحليل النتائج.' }
+                            ].map(item => `
+                                <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+                                    <h3 class="font-black text-amber-500 text-base">${item.k}</h3>
+                                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">${item.d}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '43', secIdx: 6, section: 'القسم السادس: التكنولوجيا والتحول الرقمي',
+                title: 'شات سنتر: منصة لإدارة المبيعات والعمليات الرقمية',
+                type: 'interactive', time: '5 دقائق',
+                note: 'اربط كل واجهة في شات سنتر بالوظيفة التجارية التي تخدمها.',
+                html: () => {
+                    const items = [
+                        { m: 'CRM', f: 'إدارة علاقات العملاء', d: 'توحيد ملف العميل وسجل طلباته وتفاعلاته لمنع ضياع الفرص.' },
+                        { m: 'Inbox', f: 'إدارة المحادثات والقنوات', d: 'جمع رسائل واتساب وإنستغرام في مكان واحد وتوزيعها على الفريق.' },
+                        { m: 'Campaigns', f: 'إدارة الحملات', d: 'إطلاق حملات تواصل مستهدفة وقياس عائدها البيعي بدقة.' },
+                        { m: 'AI', f: 'توظيف الذكاء الاصطناعي', d: 'مساعدة الموظفين في صياغة الردود وتحليل نية العميل.' },
+                        { m: 'Automation', f: 'أتمتة المحادثات والعمليات', d: 'ردود آلية ذكية وجدولة متابعات تلقائية للعملاء.' },
+                        { m: 'Integrations', f: 'ربط الأنظمة والخدمات', d: 'تكامل سلس مع المتاجر الإلكترونية وشركات التوصيل.' },
+                        { m: 'POS', f: 'إدارة البيع والفواتير والمخزون', d: 'إصدار الفواتير من داخل المحادثة وتحديث المخزون لحظياً.' }
+                    ];
+                    return `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-8 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 43 | نموذج تطبيقي</span>
+                            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">شات سنتر: منصة لإدارة المبيعات والعمليات الرقمية</h2>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">شات سنتر نموذج تطبيقي لمنصة تساعد الشركات على تنظيم عملياتها التجارية الرقمية، وربط التفاعل مع العملاء بالبيانات والإجراءات التشغيلية.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                            <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                ${items.map((it, i) => `
+                                    <button onclick="pickCC(${i})" id="cc-tile-${i}" class="cc-tile p-4 rounded-2xl border text-right transition ${i === 0 ? "bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-lg" : "bg-slate-100/80 dark:bg-white/5 text-slate-800 dark:text-white border-slate-200 dark:border-white/10 hover:border-emerald-400"}">
+                                        <div class="text-lg font-black">${it.m}</div>
+                                        <div class="text-xs mt-0.5 opacity-85">${it.f}</div>
+                                    </button>
+                                `).join('')}
+                            </div>
+
+                            <div class="lg:col-span-5 rounded-2xl bg-royal-950 border border-emerald-500/30 text-white p-6 flex flex-col justify-between space-y-4">
+                                <div class="space-y-3">
+                                    <span class="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-300 text-xs font-bold">الوظيفة التجارية</span>
+                                    <h3 id="ccHead" class="text-2xl font-black text-emerald-400">CRM - إدارة علاقات العملاء</h3>
+                                    <p id="ccDesc" class="text-base text-slate-200 leading-relaxed">توحيد ملف العميل وسجل طلباته وتفاعلاته لمنع ضياع الفرص.</p>
+                                </div>
+                                <div class="text-xs text-amber-300 font-bold pt-3 border-t border-white/10">
+                                    "المهم ليس حفظ أسماء الواجهات، بل فهم الوظيفة التجارية التي تخدمها كل واجهة."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                }
+            },
+
+            // --- القسم السابع: التطبيق العملي ---
+            {
+                num: '45', secIdx: 7, section: 'القسم السابع: التطبيق العملي',
+                title: 'الحالة العملية: تشخيص متجر يعاني من تراجع المبيعات',
+                type: 'interactive', time: '6 دقائق',
+                note: 'شغّل مؤقت النقاش واطلب من الفرق تشخيص الحالة قبل اقتراح أي حل.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500">الشريحة 45 | ورشة العمل</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">الحالة العملية للتشخيص</h2>
+                            </div>
+                            <div class="flex items-center gap-2 bg-royal-950 border border-amber-500/40 text-white px-4 py-2 rounded-2xl">
+                                <i class="fa-solid fa-stopwatch text-amber-400"></i>
+                                <span id="timerTxt" class="font-mono font-black text-lg">10:00</span>
+                                <button onclick="toggleTimer()" id="timerBtn" class="px-3 py-1 rounded-lg bg-emerald-500 text-slate-950 font-black text-xs">بدء</button>
+                                <button onclick="resetTimer()" class="px-2.5 py-1 rounded-lg bg-white/10 text-xs">إعادة</button>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-100 dark:bg-white/5 border-r-4 border-amber-400 text-lg font-bold text-slate-800 dark:text-slate-100">
+                            لدى المتجر منتجات جيدة وأسعار مناسبة، ويستقبل استفسارات من العملاء عبر <strong>واتساب وإنستغرام</strong>، لكنه يواجه مجموعة من المشكلات:
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                            ${[
+                                'كثرة الاستفسارات وقلة المبيعات.',
+                                'تأخر الرد على العملاء.',
+                                'عدم متابعة من لم يشترِ.',
+                                'عدم وجود قاعدة بيانات منظمة.',
+                                'عدم وضوح أداء الموظفين.',
+                                'صعوبة معرفة المنتجات الأكثر طلباً.'
+                            ].map((p, i) => `
+                                <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-xl bg-rose-500 text-white font-black text-sm flex items-center justify-center shrink-0">${i + 1}</span>
+                                    <span class="font-bold text-slate-900 dark:text-white">${p}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-gradient-to-l from-amber-500 to-emerald-500 text-slate-950 font-black text-center text-lg">
+                            المطلوب: فهم النشاط التجاري وتشخيص المشكلة قبل اقتراح الحل.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '46', secIdx: 7, section: 'القسم السابع: التطبيق العملي',
+                title: 'المهمة الأولى: افهم النشاط التجاري',
+                type: 'interactive', time: '4 دقائق',
+                note: 'المرحلة الأولى من التشخيص.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-extrabold text-emerald-500">الشريحة 46 | المهمة 1 من 5</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">المهمة الأولى: افهم النشاط التجاري</h2>
+                            </div>
+                            <span class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 font-black text-xl flex items-center justify-center">01</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${[
+                                'ما طبيعة النشاط التجاري؟',
+                                'من العملاء المستهدفون؟',
+                                'ما المنتجات والقيمة المقدمة؟',
+                                'ما مصادر الإيرادات؟',
+                                'ما القنوات المستخدمة للوصول إلى العملاء؟',
+                                'ما العمليات الأساسية التي يحتاج إليها المتجر؟'
+                            ].map((q, i) => `
+                                <div class="p-5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-4">
+                                    <span class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-500 font-black flex items-center justify-center shrink-0">${i + 1}</span>
+                                    <span class="text-lg font-extrabold text-slate-900 dark:text-white">${q}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '47', secIdx: 7, section: 'القسم السابع: التطبيق العملي',
+                title: 'المهمة الثانية: حلّل المشكلات والفجوات',
+                type: 'interactive', time: '4 دقائق',
+                note: 'التمييز بين العرض والسبب الجذري.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500">الشريحة 47 | المهمة 2 من 5</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">المهمة الثانية: حلّل المشكلات والفجوات</h2>
+                            </div>
+                            <span class="w-12 h-12 rounded-2xl bg-emerald-500 text-slate-950 font-black text-xl flex items-center justify-center">02</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${[
+                                'ما المشكلات الظاهرة؟',
+                                'ما الأسباب المحتملة وراء كل مشكلة؟',
+                                'ما الفرق بين العرض والسبب؟',
+                                'ما البيانات التي تحتاجون إليها للتأكد من التشخيص؟',
+                                'ما المشكلات التي تؤثر مباشرة في المبيعات؟',
+                                'ما المشكلات التي تؤثر في تجربة العميل؟'
+                            ].map(q => `
+                                <div class="p-5 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center gap-4">
+                                    <i class="fa-solid fa-circle-question text-amber-500 text-xl shrink-0"></i>
+                                    <span class="text-lg font-extrabold text-slate-900 dark:text-white">${q}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '48', secIdx: 7, section: 'القسم السابع: التطبيق العملي',
+                title: 'المهمة الثالثة: اربط المشكلات بوظائف الشركة',
+                type: 'interactive', time: '4 دقائق',
+                note: 'تصنيف المشكلات حسب الوظيفة المتأثرة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-extrabold text-emerald-500">الشريحة 48 | المهمة 3 من 5</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">المهمة الثالثة: اربط المشكلات بوظائف الشركة</h2>
+                                <p class="text-slate-600 dark:text-slate-300 mt-1">صنفوا المشكلات بحسب الوظيفة التي تتأثر بها:</p>
+                            </div>
+                            <span class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 font-black text-xl flex items-center justify-center">03</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            ${[
+                                { fn: 'التسويق', q: 'هل توجد مشكلة في جودة الجمهور أو الاستهداف أو الحملات؟' },
+                                { fn: 'المبيعات', q: 'هل توجد مشكلة في سرعة الرد أو التأهيل أو الإقناع أو المتابعة؟' },
+                                { fn: 'التشغيل', q: 'هل توجد مشكلة في المخزون أو الطلبات أو التجهيز أو التسليم؟' },
+                                { fn: 'التكامل', q: 'هل تنتقل المعلومات بين هذه الوظائف بصورة صحيحة؟' }
+                            ].map(item => `
+                                <div class="p-6 rounded-2xl bg-slate-100/80 dark:bg-white/5 border border-slate-200 dark:border-white/10 space-y-2">
+                                    <h3 class="text-xl font-black text-amber-500">${item.fn}</h3>
+                                    <p class="text-base font-bold text-slate-800 dark:text-slate-200">${item.q}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '49', secIdx: 7, section: 'القسم السابع: التطبيق العملي',
+                title: 'المهمة الرابعة: صمموا الحلول والعمليات',
+                type: 'interactive', time: '5 دقائق',
+                note: 'تصميم العملية العلاجية بعناصرها الستة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-500">الشريحة 49 | المهمة 4 من 5</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">المهمة الرابعة: صمموا الحلول والعمليات</h2>
+                            </div>
+                            <span class="w-12 h-12 rounded-2xl bg-emerald-500 text-slate-950 font-black text-xl flex items-center justify-center">04</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${[
+                                'الإجراء المطلوب.',
+                                'الخطوات اللازمة لتنفيذه.',
+                                'الموظف المسؤول.',
+                                'المعلومات التي يجب تسجيلها.',
+                                'التقنية التي يمكن استخدامها.',
+                                'النتيجة التي نتوقع تحقيقها.'
+                            ].map((txt, i) => `
+                                <div class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-4">
+                                    <span class="w-9 h-9 rounded-xl bg-emerald-500 text-slate-950 font-black flex items-center justify-center shrink-0">${i + 1}</span>
+                                    <span class="text-lg font-extrabold text-slate-900 dark:text-white">${txt}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '50', secIdx: 7, section: 'القسم السابع: التطبيق العملي',
+                title: 'المهمة الخامسة: كيف نقيس نجاح الحل؟',
+                type: 'interactive', time: '4 دقائق',
+                note: 'ربط كل حل بمؤشر أداء واضح.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-extrabold text-emerald-500">الشريحة 50 | المهمة 5 من 5</span>
+                                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">المهمة الخامسة: كيف نقيس نجاح الحل؟</h2>
+                            </div>
+                            <span class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 font-black text-xl flex items-center justify-center">05</span>
+                        </div>
+                        <div class="p-8 rounded-2xl bg-royal-900 border border-amber-500/40 text-center text-white space-y-3">
+                            <i class="fa-solid fa-gauge-high text-4xl text-amber-400"></i>
+                            <p class="text-2xl sm:text-3xl font-black">
+                                "كل مؤشر يجب أن يرتبط بهدف أو مشكلة نريد تحسينها."
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+
+            // --- القسم الثامن: الخلاصة ---
+            {
+                num: '52', secIdx: 8, section: 'القسم الثامن: الخلاصة',
+                title: 'ماذا تعلمنا؟',
+                type: 'conceptual', time: '3 دقائق',
+                note: 'مراجعة النقاط السبع الجامعة.',
+                html: () => `
+                    <div class="neo-glass rounded-[2rem] p-6 sm:p-10 space-y-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-500">الشريحة 52 | القسم الثامن</span>
+                            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">ماذا تعلمنا؟</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                            ${[
+                                'سوق العمل يحتاج إلى أشخاص يستطيعون تحويل المعرفة إلى قيمة.',
+                                'فهم النشاط التجاري يسبق تنفيذ المهام.',
+                                'الشركات تقوم على نموذج عمل يربط العملاء بالقيمة والإيرادات.',
+                                'التسويق والمبيعات والتشغيل وظائف مترابطة.',
+                                'العمليات الواضحة تساعد على تنظيم العمل وتحسينه.',
+                                'التكنولوجيا وسيلة لحل المشكلات وتطوير الأداء.',
+                                'النتائج المهنية يجب أن تكون قابلة للقياس والتحسين.'
+                            ].map((txt, i) => `
+                                <div class="${i === 6 ? 'md:col-span-2 bg-amber-500/15 border-amber-500/30' : 'bg-slate-100/80 dark:bg-white/5 border-slate-200 dark:border-white/10'} p-4 rounded-2xl border flex items-center gap-4">
+                                    <span class="w-9 h-9 rounded-xl bg-amber-500 text-slate-950 font-black flex items-center justify-center shrink-0">${i + 1}</span>
+                                    <span class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">${txt}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '53', secIdx: 8, section: 'القسم الثامن: الخلاصة',
+                title: 'الرسالة التي نريد أن تبقى معك',
+                type: 'conceptual', time: '3 دقائق',
+                note: 'الوصايا السبع للمهني المؤثر.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-royal-900 via-royal-950 to-emerald-950 border border-amber-500/30 p-8 sm:p-12 text-white shadow-2xl space-y-6">
+                        <div class="text-center">
+                            <span class="text-xs font-extrabold text-amber-400">الشريحة 53 | ميثاق المهني المؤثر</span>
+                            <h2 class="text-2xl sm:text-4xl font-black mt-1">الرسالة التي نريد أن تبقى معك</h2>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                            ${[
+                                'لا تكن مجرد منفذ للمهام.',
+                                'افهم النشاط التجاري الذي تعمل فيه.',
+                                'اكتشف المشكلات التي تواجهه.',
+                                'استخدم معرفتك لتصميم الحلول.',
+                                'نظّم العمل وطوّر إجراءاته.',
+                                'وظّف التكنولوجيا في المكان الصحيح.',
+                                'وقِس الأثر الذي تحققه.'
+                            ].map((txt, i) => `
+                                <div class="${i === 6 ? 'sm:col-span-2 lg:col-span-3 justify-center bg-amber-500/20 border-amber-400/40 text-amber-300' : 'bg-white/5 border-white/10'} p-4 rounded-2xl border flex items-center gap-3 font-extrabold text-lg">
+                                    <i class="fa-solid fa-star text-amber-400 text-sm"></i>
+                                    <span>${txt}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="p-5 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 text-center text-lg sm:text-xl font-black text-emerald-300">
+                            "المهني المؤثر لا يكتفي بإنجاز العمل؛ بل يسهم في تطوير طريقة إنجازه وتحقيق نتائج أفضل."
+                        </div>
+                    </div>
+                `
+            },
+            {
+                num: '54', secIdx: 8, section: 'القسم الثامن: الخلاصة',
+                title: 'الانتقال إلى المرحلة التالية – شكراً لكم',
+                type: 'conceptual', time: '5 دقائق',
+                note: 'فتح باب الأسئلة والنقاش والتمهيد للمحاضرة القادمة.',
+                html: () => `
+                    <div class="rounded-[2rem] bg-gradient-to-br from-royal-900 via-slate-900 to-royal-950 border border-amber-500/40 p-10 sm:p-16 text-center text-white shadow-2xl space-y-6">
+                        <span class="px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-extrabold">الشريحة 54 | ختام المحاضرة الأولى</span>
+                        <h2 class="text-3xl sm:text-5xl font-black">الانتقال إلى المرحلة التالية</h2>
+                        <p class="text-xl sm:text-2xl font-bold text-amber-400 max-w-3xl mx-auto">
+                            من فهم الأعمال إلى ممارسة المبيعات الرقمية وإدارة العملاء والعمليات.
+                        </p>
+                        <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            في المحاضرات القادمة سننتقل من فهم المنظومة التجارية إلى التعرف على وظائفها وممارستها عملياً، ثم استخدام الأنظمة والأدوات الرقمية لتنفيذها وتحسين نتائجها.
+                        </p>
+                        <div class="pt-4">
+                            <div class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-l from-amber-500 to-emerald-500 text-slate-950 font-black text-xl sm:text-2xl shadow-xl">
+                                <i class="fa-solid fa-comments"></i>
+                                <span>شكراً لكم · أسئلة ونقاش</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        // =========================================================================
+        // منطق التحكم والتنقل والتفاعلات
+        // =========================================================================
+        let idx = 0;
+        let filterType = 'all';
+        let query = '';
+        let bridgeOpen = true;
+        let timerSec = 600;
+        let timerRef = null;
+
+        const typeMeta = {
+            conceptual: { label: 'مفاهيمية', cls: 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30' },
+            explanatory: { label: 'مخطط وتفسير', cls: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' },
+            interactive: { label: 'تفاعلية', cls: 'bg-amber-500/20 text-amber-400 border border-amber-500/30' }
+        };
+
+        // بناء أزرار الأقسام السريعة في الشريط العلوي
+        function buildSectionPills() {
+            const container = document.getElementById('sectionPills');
+            const seen = new Set();
+            let out = '';
+            slides.forEach((s, i) => {
+                if (!seen.has(s.secIdx)) {
+                    seen.add(s.secIdx);
+                    const active = slides[idx].secIdx === s.secIdx;
+                    out += `<button onclick="jump(${i})" class="px-2.5 py-1 rounded-lg text-[11px] font-extrabold transition ${active ? 'bg-amber-500 text-slate-950' : 'text-slate-500 dark:text-slate-400 hover:text-amber-400'}">ق${s.secIdx}</button>`;
+                }
+            });
+            container.innerHTML = out;
+        }
+
+        // بناء الفهرس الجانبي
+        function buildTOC() {
+            const list = document.getElementById('tocList');
+            const groups = new Map();
+
+            slides.forEach((s, i) => {
+                const okType = filterType === 'all' || s.type === filterType;
+                const okQuery = !query || s.title.includes(query) || s.section.includes(query) || s.num.includes(query);
+                if (okType && okQuery) {
+                    if (!groups.has(s.section)) groups.set(s.section, []);
+                    groups.get(s.section).push({ ...s, i });
+                }
+            });
+
+            if (groups.size === 0) {
+                list.innerHTML = `<div class="text-center text-xs text-slate-400 py-8">لا توجد نتائج مطابقة</div>`;
+                return;
+            }
+
+            let html = '';
+            groups.forEach((items, secName) => {
+                html += `
+                    <div class="space-y-1">
+                        <div class="px-2.5 py-1.5 rounded-lg bg-slate-200/70 dark:bg-white/5 text-[11px] font-extrabold text-amber-600 dark:text-amber-400">
+                            ${secName}
+                        </div>
+                        <div class="space-y-1 pr-1">
+                            ${items.map(s => {
+                                const active = s.i === idx;
+                                return `
+                                    <button onclick="jump(${s.i})" class="w-full text-right p-2.5 rounded-xl transition flex flex-col gap-1 ${active ? 'bg-amber-500 text-slate-950 font-black shadow' : 'hover:bg-slate-200/50 dark:hover:bg-white/5 text-slate-700 dark:text-slate-300'}">
+                                        <div class="flex items-center justify-between text-[10px]">
+                                            <span class="opacity-75">شريحة ${s.num}</span>
+                                            <span class="px-1.5 py-0.5 rounded ${active ? 'bg-slate-950/15' : 'bg-white/10'}">${typeMeta[s.type].label}</span>
+                                        </div>
+                                        <span class="text-xs font-bold leading-snug line-clamp-2">${s.title}</span>
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            list.innerHTML = html;
+        }
+
+        // عرض الشريحة الحالية
+        function render() {
+            const s = slides[idx];
+            document.getElementById('slideContainer').innerHTML = `<div class="slide-stage-anim">${s.html()}</div>`;
+            document.getElementById('slideIdxLabel').textContent = idx + 1;
+            document.getElementById('slideTotalLabel').textContent = slides.length;
+            document.getElementById('badgeSec').textContent = s.section;
+
+            const bt = document.getElementById('badgeType');
+            bt.textContent = typeMeta[s.type].label;
+            bt.className = `hidden sm:inline-block text-xs font-bold px-3 py-1 rounded-full ${typeMeta[s.type].cls}`;
+
+            document.getElementById('topProgress').style.width = `${((idx + 1) / slides.length) * 100}%`;
+            document.getElementById('prevBtn').disabled = idx === 0;
+            document.getElementById('nextBtn').disabled = idx === slides.length - 1;
+
+            document.getElementById('noteBody').textContent = s.note;
+            document.getElementById('noteTime').textContent = `المدة: ${s.time}`;
+            document.getElementById('stageScroller').scrollTop = 0;
+
+            buildSectionPills();
+            buildTOC();
+        }
+
+        function jump(target) {
+            if (target >= 0 && target < slides.length) {
+                idx = target;
+                render();
+                if (window.innerWidth < 1024) {
+                    document.getElementById('leftSidebar').classList.add('hidden');
+                }
+            }
+        }
+
+        function setTypeFilter(t) {
+            filterType = t;
+            document.querySelectorAll('.t-filter').forEach(b => {
+                b.className = b.dataset.f === t
+                    ? 't-filter py-1.5 rounded-lg bg-amber-500 text-slate-950 font-extrabold'
+                    : 't-filter py-1.5 rounded-lg bg-slate-200/70 dark:bg-white/5 text-slate-600 dark:text-slate-300';
+            });
+            buildTOC();
+        }
+
+        // تفاعلات الشرائح الداخلية
+        function toggleBridgeItem(i) {
+            const el = document.getElementById(`bridge-ans-${i}`);
+            if (el) el.classList.toggle('opacity-15');
+        }
+        function toggleAllBridge() {
+            bridgeOpen = !bridgeOpen;
+            for (let i = 0; i < 5; i++) {
+                const el = document.getElementById(`bridge-ans-${i}`);
+                if (el) bridgeOpen ? el.classList.remove('opacity-15') : el.classList.add('opacity-15');
+            }
+        }
+
+        const bmcItems = [
+            { t: 'شرائح العملاء', q: 'من نخدم؟', ex: 'المتاجر الإلكترونية والشركات التي تبيع عبر منصات التواصل الاجتماعي.', ic: 'fa-users' },
+            { t: 'القيمة المقدمة', q: 'ما المشكلة التي نحلها؟', ex: 'منع ضياع المحادثات وربط المبيعات بالمخزون لزيادة الأرباح.', ic: 'fa-gift' },
+            { t: 'القنوات', q: 'كيف نصل إلى العملاء؟', ex: 'الإعلانات الممولة، التسويق بالمحتوى، والندوات الأكاديمية.', ic: 'fa-bullhorn' },
+            { t: 'العلاقة مع العملاء', q: 'كيف نكتسب العميل ونحافظ عليه؟', ex: 'دعم فني مباشر، تدريب مستمر، ومتابعة دورية.', ic: 'fa-headset' },
+            { t: 'مصادر الإيرادات', q: 'مقابل ماذا يدفع العميل؟', ex: 'اشتراكات شهرية/سنوية وباقات تدريب وتطوير.', ic: 'fa-coins' },
+            { t: 'الموارد الرئيسية', q: 'ماذا نحتاج لتشغيل النشاط؟', ex: 'المنصة التقنية، فريق التطوير، والمدربون.', ic: 'fa-server' },
+            { t: 'الأنشطة الرئيسية', q: 'ما الأعمال التي يجب تنفيذها؟', ex: 'التطوير التقني، التسويق، والتأهيل البيعي.', ic: 'fa-list-check' },
+            { t: 'الشركاء الرئيسيون', q: 'من يساعدنا على تقديم القيمة؟', ex: 'شركات الشحن، بوابات الدفع، والجامعات.', ic: 'fa-handshake' },
+            { t: 'هيكل التكاليف', q: 'ما الموارد والأنشطة التي تكلفنا؟', ex: 'السيرفرات، الرواتب، وميزانية الإعلانات.', ic: 'fa-file-invoice-dollar' }
+        ];
+        function pickBmc(i) {
+            const b = bmcItems[i];
+            document.querySelectorAll('.bmc-tile').forEach((el, k) => {
+                el.className = k === i
+                    ? 'bmc-tile text-right p-4 rounded-2xl border transition-all bg-amber-500 text-slate-950 border-amber-400 font-black shadow-lg'
+                    : 'bmc-tile text-right p-4 rounded-2xl border transition-all bg-slate-100/80 dark:bg-white/5 text-slate-800 dark:text-white border-slate-200 dark:border-white/10 hover:border-amber-400';
+            });
+            document.getElementById('bmcTitle').textContent = b.t;
+            document.getElementById('bmcQ').textContent = b.q;
+            document.getElementById('bmcEx').textContent = b.ex;
+            document.getElementById('bmcIcon').className = `fa-solid ${b.ic}`;
+        }
+
+        function setS28View(v) {
+            const m = document.getElementById('view28-main');
+            const c = document.getElementById('view28-comp');
+            const bm = document.getElementById('btn28-main');
+            const bc = document.getElementById('btn28-comp');
+            if (v === 'main') {
+                m.classList.remove('hidden'); c.classList.add('hidden');
+                bm.className = 'px-4 py-2 rounded-lg text-xs font-extrabold bg-amber-500 text-slate-950';
+                bc.className = 'px-4 py-2 rounded-lg text-xs font-extrabold text-slate-600 dark:text-slate-300';
+            } else {
+                m.classList.add('hidden'); c.classList.remove('hidden');
+                bc.className = 'px-4 py-2 rounded-lg text-xs font-extrabold bg-amber-500 text-slate-950';
+                bm.className = 'px-4 py-2 rounded-lg text-xs font-extrabold text-slate-600 dark:text-slate-300';
+            }
+        }
+
+        const ccItems = [
+            { m: 'CRM', f: 'إدارة علاقات العملاء', d: 'توحيد ملف العميل وسجل طلباته وتفاعلاته لمنع ضياع الفرص.' },
+            { m: 'Inbox', f: 'إدارة المحادثات والقنوات', d: 'جمع رسائل واتساب وإنستغرام في مكان واحد وتوزيعها على الفريق.' },
+            { m: 'Campaigns', f: 'إدارة الحملات', d: 'إطلاق حملات تواصل مستهدفة وقياس عائدها البيعي بدقة.' },
+            { m: 'AI', f: 'توظيف الذكاء الاصطناعي', d: 'مساعدة الموظفين في صياغة الردود وتحليل نية العميل.' },
+            { m: 'Automation', f: 'أتمتة المحادثات والعمليات', d: 'ردود آلية ذكية وجدولة متابعات تلقائية للعملاء.' },
+            { m: 'Integrations', f: 'ربط الأنظمة والخدمات', d: 'تكامل سلس مع المتاجر الإلكترونية وشركات التوصيل.' },
+            { m: 'POS', f: 'إدارة البيع والفواتير والمخزون', d: 'إصدار الفواتير من داخل المحادثة وتحديث المخزون لحظياً.' }
+        ];
+        function pickCC(i) {
+            const c = ccItems[i];
+            document.querySelectorAll('.cc-tile').forEach((el, k) => {
+                el.className = k === i
+                    ? 'cc-tile p-4 rounded-2xl border text-right transition bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-lg'
+                    : 'cc-tile p-4 rounded-2xl border text-right transition bg-slate-100/80 dark:bg-white/5 text-slate-800 dark:text-white border-slate-200 dark:border-white/10 hover:border-emerald-400';
+            });
+            document.getElementById('ccHead').textContent = `${c.m} - ${c.f}`;
+            document.getElementById('ccDesc').textContent = c.d;
+        }
+
+        // مؤقت ورشة العمل
+        function drawTimer() {
+            const el = document.getElementById('timerTxt');
+            if (!el) return;
+            const m = Math.floor(timerSec / 60).toString().padStart(2, '0');
+            const s = (timerSec % 60).toString().padStart(2, '0');
+            el.textContent = `${m}:${s}`;
+        }
+        function toggleTimer() {
+            const btn = document.getElementById('timerBtn');
+            if (timerRef) {
+                clearInterval(timerRef); timerRef = null;
+                if (btn) btn.textContent = 'استئناف';
+            } else {
+                if (btn) btn.textContent = 'إيقاف';
+                timerRef = setInterval(() => {
+                    if (timerSec > 0) { timerSec--; drawTimer(); }
+                    else { clearInterval(timerRef); timerRef = null; }
+                }, 1000);
+            }
+        }
+        function resetTimer() {
+            clearInterval(timerRef); timerRef = null; timerSec = 600; drawTimer();
+            const btn = document.getElementById('timerBtn');
+            if (btn) btn.textContent = 'بدء';
+        }
+
+        function toggleNotesPanel() {
+            document.getElementById('notesDrawer').classList.toggle('hidden');
+        }
+        function toggleCinemaMode() {
+            document.body.classList.toggle('cinema-mode');
+            document.getElementById('exitCinemaBtn').classList.toggle('hidden');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            render();
+            document.getElementById('nextBtn').onclick = () => jump(idx + 1);
+            document.getElementById('prevBtn').onclick = () => jump(idx - 1);
+            document.getElementById('sidebarToggle').onclick = () => document.getElementById('leftSidebar').classList.toggle('hidden');
+            document.getElementById('notesToggleBtn').onclick = toggleNotesPanel;
+            document.getElementById('cinemaToggleBtn').onclick = toggleCinemaMode;
+
+            document.getElementById('searchBox').oninput = (e) => {
+                query = e.target.value.trim();
+                buildTOC();
+            };
+
+            document.getElementById('themeBtn').onclick = () => {
+                const html = document.documentElement;
+                html.classList.toggle('dark');
+                const isDark = html.classList.contains('dark');
+                document.body.className = isDark
+                    ? 'bg-royal-mesh text-slate-100 h-screen flex flex-col overflow-hidden transition-colors duration-300 select-none'
+                    : 'light-mesh text-slate-900 h-screen flex flex-col overflow-hidden transition-colors duration-300 select-none';
+                document.getElementById('themeIcon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            };
+
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT') return;
+                if (e.key === 'ArrowLeft' || e.key === ' ') { e.preventDefault(); jump(idx + 1); }
+                else if (e.key === 'ArrowRight') { e.preventDefault(); jump(idx - 1); }
+                else if (e.key === 'Escape' && document.body.classList.contains('cinema-mode')) { toggleCinemaMode(); }
+            });
+        });
+    </script>
+</body>
+</html>
